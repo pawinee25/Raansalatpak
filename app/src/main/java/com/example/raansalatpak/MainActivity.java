@@ -32,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         mTvsteak = (TextView) findViewById(R.id.tv_steak);
         mTvdrinks = (TextView) findViewById(R.id.tv_drinks);
 
+        if (savedInstanceState==null){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framelayout,new Recommend_Fragment())
+                    .commit();
+        }
+
         mTvrecommend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
