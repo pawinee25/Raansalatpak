@@ -2,8 +2,11 @@ package com.example.raansalatpak;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvspaghetti;
     private TextView mTvsteak;
     private TextView mTvdrinks;
+    private TextView mTvbt;
+
+    private static final String TAG = "MainActivity";
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(),"OK",Toast.LENGTH_SHORT).show();
         }
 
+        button=(Button)findViewById(R.id.button);
         mTvrecommend = (TextView) findViewById(R.id.tv_recommend);
         mTvsalat = (TextView) findViewById(R.id.tv_salat);
         mTvspaghetti = (TextView) findViewById(R.id.tv_spaghetti);
@@ -82,7 +90,14 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
         });
-
+        mTvbt = (TextView) findViewById(R.id.tv_bt);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),OrderStepActivity.class));
+            }
+        });
+        Log.d(TAG, "onCreate: ");
     }
 
 }
