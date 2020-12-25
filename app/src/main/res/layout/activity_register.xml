@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".RegisterActivity">
 
     <ScrollView
@@ -18,21 +19,23 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/image_profile"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_launcher_background" />
+<!--            <ImageView-->
+<!--                android:id="@+id/image_profile"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:src="@drawable/ic_launcher_background" />-->
 
             <EditText
+                android:id="@+id/edt_name"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:hint="ชื่อ" />
 
             <EditText
+                android:id="@+id/edt_surname"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -40,6 +43,7 @@
                 android:hint="นามสกุล" />
 
             <EditText
+                android:id="@+id/edt_username"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -47,6 +51,7 @@
                 android:hint="ชื่อผู้ใช้" />
 
             <EditText
+                android:id="@+id/edt_password"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -54,6 +59,7 @@
                 android:hint="รหัสผ่าน" />
 
             <EditText
+                android:id="@+id/edt_repassword"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -61,6 +67,7 @@
                 android:hint="ยืนยันรหัสผ่าน" />
 
             <EditText
+                android:id="@+id/edt_dateofbirth"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -69,6 +76,7 @@
 
 
             <EditText
+                android:id="@+id/edt_gender"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -76,6 +84,7 @@
                 android:hint="เพศ"/>
 
             <EditText
+                android:id="@+id/edt_tel"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -83,6 +92,7 @@
                 android:hint="เบอร์โทรศัพท์" />
 
             <EditText
+                android:id="@+id/edt_email"
                 style="@style/EditText"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
@@ -96,12 +106,14 @@
                 android:gravity="center">
 
                 <Button
+                    android:id="@+id/bt_confirm"
                     android:text="ยืนยัน"
                     android:layout_width="150dp"
                     android:layout_height="60dp"
                     android:layout_marginRight="10dp" />
 
                 <Button
+                    android:id="@+id/bt_cancel"
                     android:text="ยกเลิก"
                     android:layout_width="150dp"
                     android:layout_height="60dp" />

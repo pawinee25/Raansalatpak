@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvspaghetti;
     private TextView mTvsteak;
     private TextView mTvdrinks;
-    private TextView mTvbt;
 
     private static final String TAG = "MainActivity";
     private Button button;
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(),"OK",Toast.LENGTH_SHORT).show();
         }
 
-        button=(Button)findViewById(R.id.button);
         mTvrecommend = (TextView) findViewById(R.id.tv_recommend);
         mTvsalat = (TextView) findViewById(R.id.tv_salat);
         mTvspaghetti = (TextView) findViewById(R.id.tv_spaghetti);
@@ -90,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
         });
-        mTvbt = (TextView) findViewById(R.id.tv_bt);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),OrderStepActivity.class));
-            }
-        });
+//        mTvbt = (TextView) findViewById(R.id.tv_bt);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getBaseContext(),OrderStepActivity.class));
+//            }
+//        });
         Log.d(TAG, "onCreate: ");
     }
 
