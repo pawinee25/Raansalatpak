@@ -1,14 +1,22 @@
 package com.example.raansalatpak;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,19 +25,22 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvspaghetti;
     private TextView mTvsteak;
     private TextView mTvdrinks;
-
     private static final String TAG = "MainActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (ConnectDB.getConnection() == null){
-            Toast.makeText(getBaseContext(),"NULL",Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(getBaseContext(),"OK",Toast.LENGTH_SHORT).show();
+        if (ConnectDB.getConnection() == null) {
+            Toast.makeText(getBaseContext(), "NULL", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getBaseContext(), "OK", Toast.LENGTH_SHORT).show();
         }
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Main");
+        setSupportActionBar(toolbar);
 
         mTvrecommend = (TextView) findViewById(R.id.tv_recommend);
         mTvsalat = (TextView) findViewById(R.id.tv_salat);
@@ -37,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
         mTvsteak = (TextView) findViewById(R.id.tv_steak);
         mTvdrinks = (TextView) findViewById(R.id.tv_drinks);
 
-        if (savedInstanceState==null){
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framelayout,new Recommend_Fragment())
+                    .replace(R.id.framelayout, new Recommend_Fragment())
                     .commit();
         }
 
@@ -47,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout,new Recommend_Fragment())
+                        .replace(R.id.framelayout, new Recommend_Fragment())
                         .commit();
+
+//                Toast.makeText(getBaseContext(),"mTvrecommend",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -56,8 +69,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout,new Salat_Fragment())
+                        .replace(R.id.framelayout, new Salat_Fragment())
                         .commit();
+
+//                Toast.makeText(getBaseContext(),"mTvsalat",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -65,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout,new Spaghetti_Fragment())
+                        .replace(R.id.framelayout, new Spaghetti_Fragment())
                         .commit();
             }
         });
@@ -74,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout,new Steak_Fragment())
+                        .replace(R.id.framelayout, new Steak_Fragment())
                         .commit();
             }
         });
@@ -83,11 +98,44 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout,new Drinks_Fragment())
+                        .replace(R.id.framelayout, new Drinks_Fragment())
                         .commit();
             }
         });
-//        Log.d(TAG, "onCreate: ");
+
+
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_option, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_main:
+                Toast.makeText(getBaseContext(), "nav_main", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_orders:
+                Toast.makeText(getBaseContext(), "nav_orders", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_history:
+                Toast.makeText(getBaseContext(), "nav_history", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_profile:
+                startActivity(new Intent(getBaseContext(),UserInfoActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
+//    private void onCreateOptionsMenu():Boolen() {
+//
+//    }
+
+//        Log.d(TAG, "onCreate: ");
+
+
+
