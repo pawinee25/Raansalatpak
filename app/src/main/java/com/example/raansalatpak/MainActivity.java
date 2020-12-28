@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvdrinks;
 
     private static final String TAG = "MainActivity";
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,14 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
         });
-//        mTvbt = (TextView) findViewById(R.id.tv_bt);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getBaseContext(),OrderStepActivity.class));
-//            }
-//        });
-        Log.d(TAG, "onCreate: ");
+//        Log.d(TAG, "onCreate: ");
     }
 
 }

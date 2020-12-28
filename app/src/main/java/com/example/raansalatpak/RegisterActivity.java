@@ -46,37 +46,42 @@ public class RegisterActivity extends AppCompatActivity {
         mBtconfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = mEdtusername.getText().toString().trim();
-                String name = mEdtname.getText().toString().trim();
-                String surname = mEdtsurname.getText().toString().trim();
-                String dateofbirth = mEdtdateofbirth.getText().toString().trim();
-                String gender = mEdtgender.getText().toString().trim();
-                String tel = mEdttel.getText().toString().trim();
-                String email = mEdtemail.getText().toString().trim();
-                String password = mEdtpassword.getText().toString().trim();
 
-                String sql = "INSERT INTO `customer`(`UserName`, `Name`, `Surname`, `DateOfBirth`, `Gender`, `Tel`, `Email`, `Password`) " +
-                        "VALUES ('" + username + "','" + name + "','" + surname + "','" + dateofbirth + "','" + gender + "','" + tel + "','" + email + "','" + password + "')";
-                Dru.connection(ConnectDB.getConnection())
-                        .execute(sql)
-                        .commit(new ExecuteUpdate() {
-                            @Override
-                            public void onComplete() {
-                                mEdtusername.setText("");
-                                mEdtname.setText("");
-                                mEdtsurname.setText("");
-                                mEdtdateofbirth.setText("");
-                                mEdtgender.setText("");
-                                mEdttel.setText("");
-                                mEdtemail.setText("");
-                                mEdtpassword.setText("");
+                register();
 
-                                Toast.makeText(getBaseContext(),"สำเร็จ",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getBaseContext(),LoginActivity.class));
+            }
+        });
+    }
 
-                            }
-                        });
+    private void register() {
+        String username = mEdtusername.getText().toString().trim();
+        String name = mEdtname.getText().toString().trim();
+        String surname = mEdtsurname.getText().toString().trim();
+        String dateofbirth = mEdtdateofbirth.getText().toString().trim();
+        String gender = mEdtgender.getText().toString().trim();
+        String tel = mEdttel.getText().toString().trim();
+        String email = mEdtemail.getText().toString().trim();
+        String password = mEdtpassword.getText().toString().trim();
+
+        String sql = "INSERT INTO `customer`(`UserName`, `Name`, `Surname`, `DateOfBirth`, `Gender`, `Tel`, `Email`, `Password`) " +
+                "VALUES ('" + username + "','" + name + "','" + surname + "','" + dateofbirth + "','" + gender + "','" + tel + "','" + email + "','" + password + "')";
+        Dru.connection(ConnectDB.getConnection())
+                .execute(sql)
+                .commit(new ExecuteUpdate() {
+                    @Override
+                    public void onComplete() {
+                        Toast.makeText(getBaseContext(), "Success", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getBaseContext(),LoginActivity.class));
+                        finish();
+                    }
+                });
+
+        mBtcancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),LoginActivity.class));
             }
         });
     }
 }
+
