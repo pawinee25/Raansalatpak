@@ -4,11 +4,12 @@
     android:layout_marginStart="4dp"
     android:layout_marginTop="4dp"
     android:layout_marginEnd="4dp"
-    android:background="#ABDA75"
+    android:layout_marginBottom="4dp"
+    android:background="#A5E8F1"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
-        android:id="@+id/iv_image"
+        android:id="@+id/iv_imagefood"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@mipmap/ic_launcher" />
@@ -44,8 +45,9 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/iv_imageadd"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/ic_baseline_add_circle_outline_24" />
 </LinearLayout>

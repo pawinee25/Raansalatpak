@@ -5,7 +5,7 @@
     <item
         android:id="@+id/nav_main"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="หน้าแรก" />
+        android:title="ข้อมูลร้าน" />
 
     <item
         android:id="@+id/nav_orders"
