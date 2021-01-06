@@ -57,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Main");
         setSupportActionBar(toolbar);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewrecomment);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-        mRecyclerView.setAdapter(new RecommentAdapter());
         mTvrecommend = (TextView) findViewById(R.id.tv_recommend);
         mTvsalat = (TextView) findViewById(R.id.tv_salat);
         mTvspaghetti = (TextView) findViewById(R.id.tv_spaghetti);
@@ -150,82 +147,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        fetchProduct();
-    }
-
-    private void fetchProduct() {
-        String sql = "SELECT * FROM `food`";
-        Dru.connection(ConnectDB.getConnection())
-                .execute(sql)
-                .commit(new ExecuteQuery() {
-                    @Override
-                    public void onComplete(ResultSet resultSet) {
-                        try {
-                            items = new ArrayList<Product>();
-                            while (resultSet.next()) {
-                                Product product = new Product(
-                                        resultSet.getInt(1),
-                                        resultSet.getString(2),
-                                        resultSet.getString(3),
-                                        resultSet.getString(4),
-                                        resultSet.getInt(5),
-                                        resultSet.getInt(6),
-                                        resultSet.getInt(7)
-                                );
-                                items.add(product);
-                            }
-
-                            mRecyclerView.setAdapter(new RecommentAdapter());
-
-                        } catch (SQLException throwables) {
-                            throwables.printStackTrace();
-                        }
-                    }
-                });
-    }
-
-    private class RecommentAdapter extends RecyclerView.Adapter<ProducrtHolder> {
-        @NonNull
-        @Override
-        public ProducrtHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recommend, parent, false);
-            return new ProducrtHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ProducrtHolder holder, int position) {
-            Product product = items.get(position);
-            holder.tvnamefoodth.setText(product.getFood_name());
-            holder.tvnamefoodus.setText(product.getFood_nameus());
-            holder.tvprice.setText(product.getPrice() + "");
-            Dru.loadImageCircle(holder.ivimagefood, ConnectDB.BASE_IMAGE + product.getImagefood());
-        }
-
-        @Override
-        public int getItemCount() {
-            return items.size();
-        }
-    }
-
-    private class ProducrtHolder extends RecyclerView.ViewHolder {
-        private final ImageView ivimagefood;
-        private final TextView tvnamefoodth;
-        private final TextView tvnamefoodus;
-        private final TextView tvprice;
-
-        public ProducrtHolder(@NonNull View itemView) {
-            super(itemView);
-            ivimagefood = (ImageView) itemView.findViewById(R.id.iv_imagefood);
-            tvnamefoodth = (TextView) itemView.findViewById(R.id.tv_namefoodth);
-            tvnamefoodus = (TextView) itemView.findViewById(R.id.tv_namefoodus);
-            tvprice = (TextView) itemView.findViewById(R.id.tv_price);
-
-        }
-    }
 }
 
 

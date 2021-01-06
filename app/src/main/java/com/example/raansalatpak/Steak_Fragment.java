@@ -93,7 +93,7 @@ public class Steak_Fragment extends Fragment {
             holder.tvnamefoodth.setText(product.getFood_name());
             holder.tvnamefoodus.setText(product.getFood_nameus());
             holder.tvprice.setText(product.getPrice() + "");
-            Dru.loadImageCircle(holder.ivimagefood, ConnectDB.BASE_IMAGE + product.getImagefood());
+            Dru.loadImageCircle(holder.ivimagefood,  product.getImagefood());
 
         }
 

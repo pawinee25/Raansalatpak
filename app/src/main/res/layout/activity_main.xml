@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:text="แนะนำ"
+            android:textSize="16dp"
             app:layout_constraintEnd_toStartOf="@+id/tv_salat"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,28 +35,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="สลัด" />
+            android:text="สลัด"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/tv_steak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="สเต็ก" />
+            android:text="สเต็ก"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/tv_spaghetti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="สปาเก็ตตี้" />
+            android:text="สปาเก็ตตี้"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/tv_drinks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:text="เครื่องดื่ม" />
+            android:text="เครื่องดื่ม"
+            android:textSize="16dp" />
 
 
     </LinearLayout>
@@ -65,19 +70,6 @@
         android:id="@+id/framelayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewrecomment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_recommend" />
-
-
     </FrameLayout>
 
 
