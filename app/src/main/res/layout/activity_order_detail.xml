@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OrderDetailActivity">
@@ -17,28 +19,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_a"
+        android:id="@+id/tv_namefoodth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="น้ำเสาวรส"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_imgae" />
-
+        />
     <TextView
-        android:id="@+id/tv_b"
+        android:id="@+id/tv_namefoodus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Passion fruit juice"
+        />
+
+    <TextView
+        android:id="@+id/tv_detail_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-130dp"
+        android:layout_marginTop="10dp"
         android:text="รายละเอียดอาหาร"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_a" />
 
     <View
-        android:id="@+id/v_c"
+        android:id="@+id/v_roll"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="#8BC34A"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,10 +55,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_b" />
 
     <TextView
-        android:id="@+id/tv_d"
+        android:id="@+id/tv_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:text="รายละเอียดเพิ่มเติม"
         android:textSize="20dp"
@@ -62,52 +71,60 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/shape_edit"
-        android:hint="เพิ่มเติม"
+        android:hint="เช่น ไม่เอาถุงพลาสติก"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_d" />
 
-    <TextView
-        android:id="@+id/tv_e"
+    <LinearLayout
         android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_a" />
+        android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="50dp"
-        android:src="@drawable/dl"
-        app:layout_constraintEnd_toStartOf="@id/tv_e"
-        app:layout_constraintTop_toTopOf="@+id/tv_e" />
+        <Button
+            android:id="@+id/subtract_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_weight="1"
+            android:backgroundTint="#BEF1B8"
+            android:background="@drawable/shape_edit"
+            android:text="-" />
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/ps"
-        app:layout_constraintStart_toEndOf="@+id/tv_e"
-        app:layout_constraintTop_toTopOf="@+id/tv_e" />
+        <TextView
+            android:id="@+id/tv_number_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:background="@color/white"
+            android:text="1" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
+            android:backgroundTint="#BEF1B8"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit"
+            android:text="+"/>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:backgroundTint="#BEF1B8"
+        android:layout_marginTop="40dp"
         android:background="@drawable/shape_edit"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginBottom="10dp"
+        android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
             android:text="ใส่ในตระกร้า"
             android:textColor="@color/black"
             android:textSize="20dp" />
@@ -115,11 +132,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
             android:text="ราคา"
+            android:layout_marginStart="180dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="250dp"
+            android:text="฿"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
     </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

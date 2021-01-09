@@ -1,6 +1,7 @@
 package com.example.raansalatpak;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,12 +29,12 @@ public class Recommend_Fragment extends Fragment {
     private static final String TAG = "Recommend_Fragment";
     private RecyclerView mRecyclerView;
     private ArrayList<Product> items;
+    private  ImageView miv_imageadd ;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_recommend, container, false);
-
     }
 
     @Override
@@ -42,11 +43,19 @@ public class Recommend_Fragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewrecomment);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(new RecommentAdapter());
+        miv_imageadd = (ImageView)view.findViewById(R.id.iv_imageadd);
+
+//        miv_imageadd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getBaseContext(), RegisterActivity.class));
+//            }
+//        });
     }
+
 
     public void onResume() {
         super.onResume();
-
         fetchProduct();
     }
 
@@ -108,6 +117,7 @@ public class Recommend_Fragment extends Fragment {
 
     private class ProducrtHolder extends RecyclerView.ViewHolder {
         private final ImageView ivimagefood;
+        private final ImageView iv_imagefood;
         private final TextView tvnamefoodth;
         private final TextView tvnamefoodus;
         private final TextView tvprice;
@@ -118,6 +128,15 @@ public class Recommend_Fragment extends Fragment {
             tvnamefoodth = (TextView) itemView.findViewById(R.id.tv_namefoodth);
             tvnamefoodus = (TextView) itemView.findViewById(R.id.tv_namefoodus);
             tvprice = (TextView) itemView.findViewById(R.id.tv_price);
+            iv_imagefood = (ImageView)itemView.findViewById(R.id.iv_imageadd);
+
+            iv_imagefood.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getContext(),OrderDetailActivity.class));
+                }
+            });
+
 
         }
     }
