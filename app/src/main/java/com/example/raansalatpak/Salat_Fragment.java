@@ -1,6 +1,7 @@
 package com.example.raansalatpak;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ public class Salat_Fragment extends Fragment {
 
     private static final String TAG = "Salat_Fragment";
     private RecyclerView mRecyclerView;
+    private  ImageView miv_imageadd ;
     private ArrayList<Product> items;
 
     @Nullable
@@ -43,6 +45,7 @@ public class Salat_Fragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewsalat);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(new RecommentAdapter());
+        miv_imageadd = (ImageView)view.findViewById(R.id.iv_imageadd);
 
     }
 
@@ -113,6 +116,7 @@ public class Salat_Fragment extends Fragment {
         private final TextView tvnamefoodth;
         private final TextView tvnamefoodus;
         private final TextView tvprice;
+        private final ImageView iv_imagefood;
 
         public ProducrtHolder(@NonNull View itemView) {
             super(itemView);
@@ -120,6 +124,22 @@ public class Salat_Fragment extends Fragment {
             tvnamefoodth = (TextView) itemView.findViewById(R.id.tv_namefoodth);
             tvnamefoodus = (TextView) itemView.findViewById(R.id.tv_namefoodus);
             tvprice = (TextView) itemView.findViewById(R.id.tv_price);
+            iv_imagefood = (ImageView)itemView.findViewById(R.id.iv_imageadd);
+
+            iv_imagefood.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Product product = items.get(getAdapterPosition());
+                    Intent intent = new Intent(getContext(),OrderDetailActivity.class);
+                    intent.putExtra("Food_ID",product.getFood_id());
+                    intent.putExtra("Food_Name",product.getFood_name());
+                    intent.putExtra("Food_NameUS",product.getFood_nameus());
+                    intent.putExtra("Food_Detail_ID",product.getFood_detail_id());
+                    intent.putExtra("Food_Price",product.getPrice());
+                    startActivity(intent);
+                }
+            });
+
 
         }
     }

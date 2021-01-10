@@ -45,12 +45,6 @@ public class Recommend_Fragment extends Fragment {
         mRecyclerView.setAdapter(new RecommentAdapter());
         miv_imageadd = (ImageView)view.findViewById(R.id.iv_imageadd);
 
-//        miv_imageadd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getBaseContext(), RegisterActivity.class));
-//            }
-//        });
     }
 
 
@@ -133,7 +127,15 @@ public class Recommend_Fragment extends Fragment {
             iv_imagefood.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(getContext(),OrderDetailActivity.class));
+                    Product product = items.get(getAdapterPosition());
+                    Intent intent = new Intent(getContext(),OrderDetailActivity.class);
+                    intent.putExtra("Food_ID",product.getFood_id());
+                    intent.putExtra("Food_Name",product.getFood_name());
+                    intent.putExtra("Food_Image",product.getImagefood());
+                    intent.putExtra("Food_NameUS",product.getFood_nameus());
+                    intent.putExtra("Food_Detail_ID",product.getFood_detail_id());
+                    intent.putExtra("Food_Price",product.getPrice());
+                    startActivity(intent);
                 }
             });
 
