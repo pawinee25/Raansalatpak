@@ -132,6 +132,7 @@ public class Salat_Fragment extends Fragment {
                     Product product = items.get(getAdapterPosition());
                     Intent intent = new Intent(getContext(),OrderDetailActivity.class);
                     intent.putExtra("Food_ID",product.getFood_id());
+                    intent.putExtra("Food_Image",product.getImagefood());
                     intent.putExtra("Food_Name",product.getFood_name());
                     intent.putExtra("Food_NameUS",product.getFood_nameus());
                     intent.putExtra("Food_Detail_ID",product.getFood_detail_id());

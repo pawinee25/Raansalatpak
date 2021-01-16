@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adedom.library.Dru;
+import com.example.raansalatpak.Model.Product;
 
 public class OrderDetailActivity extends AppCompatActivity {
 
@@ -21,6 +23,10 @@ public class OrderDetailActivity extends AppCompatActivity {
     private TextView mTv_Detail_Food;
     private TextView mTv_Food_Price;
     private Object holder;
+    private Product product;
+    private Button mBtnDecrement;
+    private Button mBtnIncrement;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,9 @@ public class OrderDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_detail);
 
         mTvNumberCounter = (TextView) findViewById(R.id.tv_number_counter);
+        mBtnDecrement = (Button)findViewById(R.id.btn_decrement);
+        mBtnIncrement = (Button)findViewById(R.id.btn_increment);
+
 
         String Food_ID = getIntent().getStringExtra("Food_ID");
         String Food_Name = getIntent().getStringExtra("Food_Name");
@@ -47,20 +56,45 @@ public class OrderDetailActivity extends AppCompatActivity {
         mTv_NameFoodUs.setText(Food_NameUS);
         mTv_Detail_Food.setText(Food_Detail_ID);
         mTv_Food_Price.setText(Food_Price+"");
-        mImg_Imgae.setImageDrawable(Drawable.createFromPath(Food_Image));
-        //Dru.loadImageCircle(holder.iv_imagefood,  product.getImagefood());
+        Dru.loadImageCircle(mImg_Imgae, Food_Image );
+        //Dru.loadImageCircle(holder.mImg_Imgae,  product.getImagefood());
+        //Dru.loadImageCircle(mImg_Imgae, ConnectDB.BASE_URL  +product.getImagefood());
+       // mImg_Imgae.setImageDrawable(Drawable.createFromPath(Dru.loadImageCircle(holder.mImg_Imgae,  product.getImagefood())));
 
-
+        mBtnIncrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                increment();
+            }
+        });
+        mBtnDecrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                decrement();
+            }
+        });
     }
-    public  void increment(View v){
-        Count++;
-        mTvNumberCounter.setText(""+Count);
 
-
-    }
-    public void decrement(View v){
+    private void decrement() {
         if(Count <= 0) Count = 0;
         else Count--;
         mTvNumberCounter.setText(""+Count);
     }
+
+    private void increment() {
+        Count++;
+        mTvNumberCounter.setText(""+Count);
+    }
+
+
+//    public  void increment(View v){
+//        Count++;
+//        mTvNumberCounter.setText(""+Count);
+//
+//    }
+//    public void decrement(View v){
+//        if(Count <= 0) Count = 0;
+//        else Count--;
+//        mTvNumberCounter.setText(""+Count);
+//    }
 }

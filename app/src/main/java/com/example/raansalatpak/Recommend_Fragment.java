@@ -26,7 +26,8 @@ import java.util.ArrayList;
 
 public class Recommend_Fragment extends Fragment {
 
-    private static final String TAG = "Recommend_Fragment";
+    //private static final String TAG = "Recommend_Fragment";
+    private static final String TAG = "TestPutExtra";
     private RecyclerView mRecyclerView;
     private ArrayList<Product> items;
     private  ImageView miv_imageadd ;
@@ -135,6 +136,7 @@ public class Recommend_Fragment extends Fragment {
                     intent.putExtra("Food_NameUS",product.getFood_nameus());
                     intent.putExtra("Food_Detail_ID",product.getFood_detail_id());
                     intent.putExtra("Food_Price",product.getPrice());
+                    Log.d(TAG, "ocClick: "+ product.getImagefood());
                     startActivity(intent);
                 }
             });
