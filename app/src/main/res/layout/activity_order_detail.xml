@@ -37,7 +37,7 @@
         android:id="@+id/tv_detail_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-130dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:text="รายละเอียดอาหาร"
         android:gravity="center"
@@ -47,7 +47,7 @@
     <View
         android:id="@+id/v_roll"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="15dp"
         android:layout_marginTop="10dp"
         android:background="#8BC34A"
         app:layout_constraintEnd_toEndOf="parent"
