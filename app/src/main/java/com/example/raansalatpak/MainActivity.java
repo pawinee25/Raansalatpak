@@ -1,6 +1,7 @@
 package com.example.raansalatpak;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,7 +43,17 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private ArrayList<Product> items;
     private RecyclerView mRecyclerView;
+    private TextView mTvOrder;
 
+    private Recommend_Fragment.SetOnOrderListener recommendListener = new Recommend_Fragment.SetOnOrderListener() {
+        @Override
+        public void onOrder(int foodId, int count) {
+            String text = mTvOrder.getText().toString();
+            int countLast = Integer.parseInt(text);
+            String show = String.valueOf(countLast + count);
+            mTvOrder.setText(show);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +74,11 @@ public class MainActivity extends AppCompatActivity {
         mTvspaghetti = (TextView) findViewById(R.id.tv_spaghetti);
         mTvsteak = (TextView) findViewById(R.id.tv_steak);
         mTvdrinks = (TextView) findViewById(R.id.tv_drinks);
+        mTvOrder = (TextView) findViewById(R.id.tvOrder);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framelayout, new Recommend_Fragment())
+                    .replace(R.id.framelayout, new Recommend_Fragment(recommendListener))
                     .commit();
         }
 
@@ -73,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout, new Recommend_Fragment())
+                        .replace(R.id.framelayout, new Recommend_Fragment(recommendListener))
                         .commit();
 
 //                Toast.makeText(getBaseContext(),"mTvrecommend",Toast.LENGTH_SHORT).show();
@@ -132,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_main:
-                startActivity(new Intent(getBaseContext(),ShopInformationActivity.class));
+                startActivity(new Intent(getBaseContext(), ShopInformationActivity.class));
                 break;
             case R.id.nav_orders:
                 Toast.makeText(getBaseContext(), "nav_orders", Toast.LENGTH_SHORT).show();

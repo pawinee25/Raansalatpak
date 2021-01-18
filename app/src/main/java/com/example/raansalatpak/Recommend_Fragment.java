@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,7 +31,13 @@ public class Recommend_Fragment extends Fragment {
     private static final String TAG = "TestPutExtra";
     private RecyclerView mRecyclerView;
     private ArrayList<Product> items;
-    private  ImageView miv_imageadd ;
+    private ImageView miv_imageadd;
+
+    private SetOnOrderListener listener;
+
+    public Recommend_Fragment(SetOnOrderListener listener) {
+        this.listener = listener;
+    }
 
     @Nullable
     @Override
@@ -44,7 +51,7 @@ public class Recommend_Fragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewrecomment);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(new RecommentAdapter());
-        miv_imageadd = (ImageView)view.findViewById(R.id.iv_imageadd);
+        miv_imageadd = (ImageView) view.findViewById(R.id.iv_imageadd);
 
     }
 
@@ -99,9 +106,9 @@ public class Recommend_Fragment extends Fragment {
             holder.tvnamefoodth.setText(product.getFood_name());
             holder.tvnamefoodus.setText(product.getFood_nameus());
             holder.tvprice.setText(product.getPrice() + "");
-            Dru.loadImageCircle(holder.ivimagefood,  product.getImagefood());
+            Dru.loadImageCircle(holder.ivimagefood, product.getImagefood());
             Log.d(TAG, "onBindViewHolder: ");
-            
+
         }
 
         @Override
@@ -123,26 +130,44 @@ public class Recommend_Fragment extends Fragment {
             tvnamefoodth = (TextView) itemView.findViewById(R.id.tv_namefoodth);
             tvnamefoodus = (TextView) itemView.findViewById(R.id.tv_namefoodus);
             tvprice = (TextView) itemView.findViewById(R.id.tv_price);
-            iv_imagefood = (ImageView)itemView.findViewById(R.id.iv_imageadd);
+            iv_imagefood = (ImageView) itemView.findViewById(R.id.iv_imageadd);
 
             iv_imagefood.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Product product = items.get(getAdapterPosition());
-                    Intent intent = new Intent(getContext(),OrderDetailActivity.class);
-                    intent.putExtra("Food_ID",product.getFood_id());
-                    intent.putExtra("Food_Name",product.getFood_name());
-                    intent.putExtra("Food_Image",product.getImagefood());
-                    intent.putExtra("Food_NameUS",product.getFood_nameus());
-                    intent.putExtra("Food_Detail_ID",product.getFood_detail_id());
-                    intent.putExtra("Food_Price",product.getPrice());
-                    Log.d(TAG, "ocClick: "+ product.getImagefood());
-                    startActivity(intent);
+                    Intent intent = new Intent(getContext(), OrderDetailActivity.class);
+                    intent.putExtra("Food_ID", product.getFood_id());
+                    intent.putExtra("Food_Name", product.getFood_name());
+                    intent.putExtra("Food_Image", product.getImagefood());
+                    intent.putExtra("Food_NameUS", product.getFood_nameus());
+                    intent.putExtra("Food_Detail_ID", product.getFood_detail_id());
+                    intent.putExtra("Food_Price", product.getPrice());
+                    Log.d(TAG, "ocClick: " + product.getImagefood());
+//                    startActivity(intent);
+
+                    startActivityForResult(intent, 999);
                 }
             });
 
 
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 999 && resultCode == Activity.RESULT_OK && data != null) {
+            int count = data.getIntExtra("Count", 0);
+            int foodId = data.getIntExtra("Food_ID", 0);
+            listener.onOrder(foodId, count);
+//            Toast.makeText(getContext(), "" + count + " " + Food_ID, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    interface SetOnOrderListener {
+        void onOrder(int foodId, int count);
     }
 
 }

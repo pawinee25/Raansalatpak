@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".OrderDetailActivity">
 
     <ImageView
@@ -23,15 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="น้ำเสาวรส"
-        />
+        android:text="น้ำเสาวรส" />
+
     <TextView
         android:id="@+id/tv_namefoodus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Passion fruit juice"
-        />
+        android:text="Passion fruit juice" />
 
     <TextView
         android:id="@+id/tv_detail_food"
@@ -39,8 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
-        android:text="รายละเอียดอาหาร"
         android:gravity="center"
+        android:text="รายละเอียดอาหาร"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_a" />
 
@@ -78,8 +77,8 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <Button
@@ -88,8 +87,8 @@
             android:layout_height="50dp"
             android:layout_marginEnd="50dp"
             android:layout_weight="1"
-            android:backgroundTint="#BEF1B8"
             android:background="@drawable/shape_edit"
+            android:backgroundTint="#BEF1B8"
             android:text="-" />
 
         <TextView
@@ -97,29 +96,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="20dp"
             android:background="@color/white"
-            android:text="1" />
+            android:text="1"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btn_increment"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="50dp"
-            android:backgroundTint="#BEF1B8"
             android:layout_weight="1"
             android:background="@drawable/shape_edit"
-            android:text="+"/>
+            android:backgroundTint="#BEF1B8"
+            android:text="+" />
 
     </LinearLayout>
 
     <RelativeLayout
-        android:backgroundTint="#BEF1B8"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/shape_edit"
+
+        android:id="@+id/submit"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_launcher_background"
+        android:backgroundTint="#BEF1B8"
         android:padding="8dp">
 
         <TextView
@@ -134,10 +135,11 @@
             android:id="@+id/tv_food_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ราคา"
             android:layout_marginStart="180dp"
+            android:text="ราคา"
             android:textColor="@color/black"
             android:textSize="20dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
