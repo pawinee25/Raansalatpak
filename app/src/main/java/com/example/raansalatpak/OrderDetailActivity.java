@@ -70,7 +70,8 @@ public class OrderDetailActivity extends AppCompatActivity {
         //mTv_Detail_Food.setText(Food_Detail_ID);
         mTv_Food_Price.setText(Food_Price + "");
         Dru.loadImageCircle(mImg_Imgae, Food_Image);
-        String sql = "SELECT Food_Detail_Properties FROM food  INNER JOIN fooddetail ON fooddetail.Food_Detail_ID & food.Food_Detail_ID = '" + Food_Detail_ID + "'";
+        //String sql = "SELECT Food_Detail_Properties FROM food  INNER JOIN fooddetail ON fooddetail.Food_Detail_ID & food.Food_Detail_ID = '" + Food_Detail_ID + "'";
+        String sql = "SELECT Food_Detail_Properties FROM food  INNER JOIN fooddetail ON fooddetail.Food_Detail_ID  = '" + Food_Detail_ID + "'";
         //String sql = "SELECT Food_Detail_Properties FROM food  INNER JOIN fooddetail ON food.Food_Detail_ID = '"+Food_Detail_ID+"' and fooddetail.Food_Detail_ID = '"+Food_Detail_ID+"'";
         Dru.connection(ConnectDB.getConnection())
                 .execute(sql)
