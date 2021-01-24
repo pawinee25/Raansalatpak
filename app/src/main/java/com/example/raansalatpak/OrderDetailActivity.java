@@ -123,6 +123,8 @@ public class OrderDetailActivity extends AppCompatActivity {
         if (Count <= 0) Count = 0;
         else Count--;
         mTvNumberCounter.setText("" + Count);
+        mTotal_Price = String.format("%d", Food_Price * Count);
+        mTv_Food_Price.setText(mTotal_Price);
     }
 
     private void increment() {
