@@ -55,6 +55,46 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private Spaghetti_Fragment.SetOnOrderListener spaghettiListener = new Spaghetti_Fragment.SetOnOrderListener() {
+        @Override
+        public void onOrder(int foodId, int count) {
+            String text = mTvOrder.getText().toString();
+            int countLast = Integer.parseInt(text);
+            String show = String.valueOf(countLast + count);
+            mTvOrder.setText(show);
+        }
+    };
+
+    private Steak_Fragment.SetOnOrderListener steakListener = new Steak_Fragment.SetOnOrderListener() {
+        @Override
+        public void onOrder(int foodId, int count) {
+            String text = mTvOrder.getText().toString();
+            int countLast = Integer.parseInt(text);
+            String show = String.valueOf(countLast + count);
+            mTvOrder.setText(show);
+        }
+    };
+
+    private Salat_Fragment.SetOnOrderListener salatListener = new Salat_Fragment.SetOnOrderListener() {
+        @Override
+        public void onOrder(int foodId, int count) {
+            String text = mTvOrder.getText().toString();
+            int countLast = Integer.parseInt(text);
+            String show = String.valueOf(countLast + count);
+            mTvOrder.setText(show);
+        }
+    };
+
+    private Drinks_Fragment.SetOnOrderListener drinkListener = new Drinks_Fragment.SetOnOrderListener() {
+        @Override
+        public void onOrder(int foodId, int count) {
+            String text = mTvOrder.getText().toString();
+            int countLast = Integer.parseInt(text);
+            String show = String.valueOf(countLast + count);
+            mTvOrder.setText(show);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,41 +132,61 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(getBaseContext(),"mTvrecommend",Toast.LENGTH_SHORT).show();
             }
         });
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framelayout, new Salat_Fragment(salatListener))
+                    .commit();
+        }
 
         mTvsalat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout, new Salat_Fragment())
+                        .replace(R.id.framelayout, new Salat_Fragment(salatListener))
                         .commit();
 
 //                Toast.makeText(getBaseContext(),"mTvsalat",Toast.LENGTH_SHORT).show();
             }
         });
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framelayout, new Spaghetti_Fragment(spaghettiListener))
+                    .commit();
+        }
 
         mTvspaghetti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout, new Spaghetti_Fragment())
+                        .replace(R.id.framelayout, new Spaghetti_Fragment(spaghettiListener))
                         .commit();
             }
         });
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framelayout, new Steak_Fragment(steakListener))
+                    .commit();
+        }
 
         mTvsteak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout, new Steak_Fragment())
+                        .replace(R.id.framelayout, new Steak_Fragment(steakListener))
                         .commit();
             }
         });
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framelayout, new Drinks_Fragment(drinkListener))
+                    .commit();
+        }
 
         mTvdrinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.framelayout, new Drinks_Fragment())
+                        .replace(R.id.framelayout, new Drinks_Fragment(drinkListener))
                         .commit();
 
             }

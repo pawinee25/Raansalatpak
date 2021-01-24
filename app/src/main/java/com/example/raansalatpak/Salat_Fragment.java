@@ -1,5 +1,6 @@
 package com.example.raansalatpak;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +32,12 @@ public class Salat_Fragment extends Fragment {
     private RecyclerView mRecyclerView;
     private  ImageView miv_imageadd ;
     private ArrayList<Product> items;
+
+    private SetOnOrderListener listener;
+
+    public Salat_Fragment(Salat_Fragment.SetOnOrderListener listener) {
+        this.listener = listener;
+    }
 
     @Nullable
     @Override
@@ -137,11 +144,27 @@ public class Salat_Fragment extends Fragment {
                     intent.putExtra("Food_NameUS",product.getFood_nameus());
                     intent.putExtra("Food_Detail_ID",product.getFood_detail_id());
                     intent.putExtra("Food_Price",product.getPrice());
-                    startActivity(intent);
+                    //startActivity(intent);
+                    startActivityForResult(intent, 999);
                 }
             });
 
 
         }
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 999 && resultCode == Activity.RESULT_OK && data != null) {
+            int count = data.getIntExtra("Count", 0);
+            int foodId = data.getIntExtra("Food_ID", 0);
+            listener.onOrder(foodId, count);
+//            Toast.makeText(getContext(), "" + count + " " + Food_ID, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    interface SetOnOrderListener {
+        void onOrder(int foodId, int count);
     }
 }
