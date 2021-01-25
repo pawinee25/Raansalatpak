@@ -1,6 +1,9 @@
 package com.example.raansalatpak.Model;
 
-public class ProductCart {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ProductCart implements Parcelable {
 
     private int foodId;
     private int count;
@@ -27,6 +30,33 @@ public class ProductCart {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(foodId);
+        dest.writeInt(count);
+    }
+
+    public static final Parcelable.Creator<ProductCart> CREATOR
+            = new Parcelable.Creator<ProductCart>() {
+        public ProductCart createFromParcel(Parcel in) {
+            return new ProductCart(in);
+        }
+
+        public ProductCart[] newArray(int size) {
+            return new ProductCart[size];
+        }
+    };
+
+    private ProductCart(Parcel in) {
+        foodId = in.readInt();
+        count = in.readInt();
     }
 
 }
