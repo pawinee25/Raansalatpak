@@ -1,36 +1,22 @@
 package com.example.raansalatpak;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adedom.library.Dru;
-import com.adedom.library.ExecuteQuery;
-import com.example.raansalatpak.Model.Product;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.example.raansalatpak.Model.Product;
+import com.example.raansalatpak.Model.ProductCart;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,53 +32,90 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvOrder;
     private ImageView mIvCart;
 
+    private ArrayList<ProductCart> productCarts = new ArrayList<>();
+
     private Recommend_Fragment.SetOnOrderListener recommendListener = new Recommend_Fragment.SetOnOrderListener() {
         @Override
         public void onOrder(int foodId, int count) {
-            String text = mTvOrder.getText().toString();
-            int countLast = Integer.parseInt(text);
-            String show = String.valueOf(countLast + count);
-            mTvOrder.setText(show);
+//            String text = mTvOrder.getText().toString();
+//            int countLast = Integer.parseInt(text);
+//            String show = String.valueOf(countLast + count);
+//            mTvOrder.setText(show);
+
+            productCarts.add(new ProductCart(foodId, count));
+            int countAll = 0;
+            for (ProductCart productCart : productCarts) {
+                countAll += productCart.getCount();
+            }
+            mTvOrder.setText(String.valueOf(countAll));
         }
     };
 
     private Spaghetti_Fragment.SetOnOrderListener spaghettiListener = new Spaghetti_Fragment.SetOnOrderListener() {
         @Override
         public void onOrder(int foodId, int count) {
-            String text = mTvOrder.getText().toString();
-            int countLast = Integer.parseInt(text);
-            String show = String.valueOf(countLast + count);
-            mTvOrder.setText(show);
+//            String text = mTvOrder.getText().toString();
+//            int countLast = Integer.parseInt(text);
+//            String show = String.valueOf(countLast + count);
+//            mTvOrder.setText(show);
+
+            productCarts.add(new ProductCart(foodId, count));
+            int countAll = 0;
+            for (ProductCart productCart : productCarts) {
+                countAll += productCart.getCount();
+            }
+            mTvOrder.setText(String.valueOf(countAll));
         }
     };
 
     private Steak_Fragment.SetOnOrderListener steakListener = new Steak_Fragment.SetOnOrderListener() {
         @Override
         public void onOrder(int foodId, int count) {
-            String text = mTvOrder.getText().toString();
-            int countLast = Integer.parseInt(text);
-            String show = String.valueOf(countLast + count);
-            mTvOrder.setText(show);
+//            String text = mTvOrder.getText().toString();
+//            int countLast = Integer.parseInt(text);
+//            String show = String.valueOf(countLast + count);
+//            mTvOrder.setText(show);
+
+            productCarts.add(new ProductCart(foodId, count));
+            int countAll = 0;
+            for (ProductCart productCart : productCarts) {
+                countAll += productCart.getCount();
+            }
+            mTvOrder.setText(String.valueOf(countAll));
         }
     };
 
     private Salat_Fragment.SetOnOrderListener salatListener = new Salat_Fragment.SetOnOrderListener() {
         @Override
         public void onOrder(int foodId, int count) {
-            String text = mTvOrder.getText().toString();
-            int countLast = Integer.parseInt(text);
-            String show = String.valueOf(countLast + count);
-            mTvOrder.setText(show);
+//            String text = mTvOrder.getText().toString();
+//            int countLast = Integer.parseInt(text);
+//            String show = String.valueOf(countLast + count);
+//            mTvOrder.setText(show);
+
+            productCarts.add(new ProductCart(foodId, count));
+            int countAll = 0;
+            for (ProductCart productCart : productCarts) {
+                countAll += productCart.getCount();
+            }
+            mTvOrder.setText(String.valueOf(countAll));
         }
     };
 
     private Drinks_Fragment.SetOnOrderListener drinkListener = new Drinks_Fragment.SetOnOrderListener() {
         @Override
         public void onOrder(int foodId, int count) {
-            String text = mTvOrder.getText().toString();
-            int countLast = Integer.parseInt(text);
-            String show = String.valueOf(countLast + count);
-            mTvOrder.setText(show);
+//            String text = mTvOrder.getText().toString();
+//            int countLast = Integer.parseInt(text);
+//            String show = String.valueOf(countLast + count);
+//            mTvOrder.setText(show);
+
+            productCarts.add(new ProductCart(foodId, count));
+            int countAll = 0;
+            for (ProductCart productCart : productCarts) {
+                countAll += productCart.getCount();
+            }
+            mTvOrder.setText(String.valueOf(countAll));
         }
     };
 
@@ -117,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         mTvsteak = (TextView) findViewById(R.id.tv_steak);
         mTvdrinks = (TextView) findViewById(R.id.tv_drinks);
         mTvOrder = (TextView) findViewById(R.id.tvOrder);
-        mIvCart = (ImageView)findViewById(R.id.iv_imageCart);
+        mIvCart = (ImageView) findViewById(R.id.iv_imageCart);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
