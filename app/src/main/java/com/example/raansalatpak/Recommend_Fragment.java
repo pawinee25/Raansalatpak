@@ -117,7 +117,7 @@ public class Recommend_Fragment extends Fragment {
         }
     }
 
-    private class ProducrtHolder extends RecyclerView.ViewHolder {
+    public class ProducrtHolder extends RecyclerView.ViewHolder {
         private final ImageView ivimagefood;
         private final ImageView iv_imagefood;
         private final TextView tvnamefoodth;

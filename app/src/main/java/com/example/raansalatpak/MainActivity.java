@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Product> items;
     private RecyclerView mRecyclerView;
     private TextView mTvOrder;
+    private ImageView mIvCart;
 
     private Recommend_Fragment.SetOnOrderListener recommendListener = new Recommend_Fragment.SetOnOrderListener() {
         @Override
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         mTvsteak = (TextView) findViewById(R.id.tv_steak);
         mTvdrinks = (TextView) findViewById(R.id.tv_drinks);
         mTvOrder = (TextView) findViewById(R.id.tvOrder);
+        mIvCart = (ImageView)findViewById(R.id.iv_imageCart);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -189,6 +192,12 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.framelayout, new Drinks_Fragment(drinkListener))
                         .commit();
 
+            }
+        });
+        mIvCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), CartActivity.class));
             }
         });
 

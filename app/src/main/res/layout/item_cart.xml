@@ -28,19 +28,21 @@
             android:text="ชื่อไทย" />
 
         <TextView
-            android:id="@+id/tv_namefoodus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity=""
-            android:layout_marginLeft="20dp"
-            android:text="ชื่ออังกฤษ" />
-
-        <TextView
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="ราคา" />
+
+        <TextView
+            android:id="@+id/tv_food_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:layout_marginLeft="20dp"
+            android:text="จำนวน" />
+
+
 
     </LinearLayout>
 
