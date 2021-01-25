@@ -15,7 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.raansalatpak.Model.Product;
-import com.example.raansalatpak.Model.ProductCart;
+import com.example.raansalatpak.Model.Cart;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvOrder;
     private ImageView mIvCart;
 
-    private ArrayList<ProductCart> productCarts = new ArrayList<>();
+    private ArrayList<Cart> carts = new ArrayList<>();
 
     private Recommend_Fragment.SetOnOrderListener recommendListener = new Recommend_Fragment.SetOnOrderListener() {
         @Override
@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
 //            String show = String.valueOf(countLast + count);
 //            mTvOrder.setText(show);
 
-            productCarts.add(new ProductCart(foodId, count));
+            carts.add(new Cart(foodId, count));
             int countAll = 0;
-            for (ProductCart productCart : productCarts) {
+            for (Cart productCart : carts) {
                 countAll += productCart.getCount();
             }
             mTvOrder.setText(String.valueOf(countAll));
@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
 //            String show = String.valueOf(countLast + count);
 //            mTvOrder.setText(show);
 
-            productCarts.add(new ProductCart(foodId, count));
+            carts.add(new Cart(foodId, count));
             int countAll = 0;
-            for (ProductCart productCart : productCarts) {
+            for (Cart productCart : carts) {
                 countAll += productCart.getCount();
             }
             mTvOrder.setText(String.valueOf(countAll));
@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
 //            String show = String.valueOf(countLast + count);
 //            mTvOrder.setText(show);
 
-            productCarts.add(new ProductCart(foodId, count));
+            carts.add(new Cart(foodId, count));
             int countAll = 0;
-            for (ProductCart productCart : productCarts) {
+            for (Cart productCart : carts) {
                 countAll += productCart.getCount();
             }
             mTvOrder.setText(String.valueOf(countAll));
@@ -93,9 +93,9 @@ public class MainActivity extends AppCompatActivity {
 //            String show = String.valueOf(countLast + count);
 //            mTvOrder.setText(show);
 
-            productCarts.add(new ProductCart(foodId, count));
+            carts.add(new Cart(foodId, count));
             int countAll = 0;
-            for (ProductCart productCart : productCarts) {
+            for (Cart productCart : carts) {
                 countAll += productCart.getCount();
             }
             mTvOrder.setText(String.valueOf(countAll));
@@ -110,9 +110,9 @@ public class MainActivity extends AppCompatActivity {
 //            String show = String.valueOf(countLast + count);
 //            mTvOrder.setText(show);
 
-            productCarts.add(new ProductCart(foodId, count));
+            carts.add(new Cart(foodId, count));
             int countAll = 0;
-            for (ProductCart productCart : productCarts) {
+            for (Cart productCart : carts) {
                 countAll += productCart.getCount();
             }
             mTvOrder.setText(String.valueOf(countAll));
@@ -220,11 +220,8 @@ public class MainActivity extends AppCompatActivity {
         mIvCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(getBaseContext(), CartActivity.class));
-
                 Intent intent = new Intent(getBaseContext(), CartActivity.class);
-//                intent.putExtra("productCarts", productCarts);
-                intent.putParcelableArrayListExtra("productCarts",productCarts);
+                intent.putParcelableArrayListExtra("carts", carts);
                 startActivity(intent);
 
             }

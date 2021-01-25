@@ -1,27 +1,84 @@
 package com.example.raansalatpak.Model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+public class ProductCart {
 
-public class ProductCart implements Parcelable {
-
-    private int foodId;
+    private int Food_id;
+    private String Food_name;
+    private String Food_nameus;
+    private String imagefood;
+    private int price;
+    private int Food_detail_id;
+    private int Food_type_id;
     private int count;
 
     public ProductCart() {
     }
 
-    public ProductCart(int foodId, int count) {
-        this.foodId = foodId;
+    public ProductCart(int food_id, String food_name, String food_nameus, String imagefood, int price, int food_detail_id, int food_type_id, int count) {
+        Food_id = food_id;
+        Food_name = food_name;
+        Food_nameus = food_nameus;
+        this.imagefood = imagefood;
+        this.price = price;
+        Food_detail_id = food_detail_id;
+        Food_type_id = food_type_id;
         this.count = count;
     }
 
-    public int getFoodId() {
-        return foodId;
+    public int getFood_id() {
+        return Food_id;
     }
 
-    public void setFoodId(int foodId) {
-        this.foodId = foodId;
+    public void setFood_id(int food_id) {
+        Food_id = food_id;
+    }
+
+    public String getFood_name() {
+        return Food_name;
+    }
+
+    public void setFood_name(String food_name) {
+        Food_name = food_name;
+    }
+
+    public String getFood_nameus() {
+        return Food_nameus;
+    }
+
+    public void setFood_nameus(String food_nameus) {
+        Food_nameus = food_nameus;
+    }
+
+    public String getImagefood() {
+        return imagefood;
+    }
+
+    public void setImagefood(String imagefood) {
+        this.imagefood = imagefood;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getFood_detail_id() {
+        return Food_detail_id;
+    }
+
+    public void setFood_detail_id(int food_detail_id) {
+        Food_detail_id = food_detail_id;
+    }
+
+    public int getFood_type_id() {
+        return Food_type_id;
+    }
+
+    public void setFood_type_id(int food_type_id) {
+        Food_type_id = food_type_id;
     }
 
     public int getCount() {
@@ -31,32 +88,5 @@ public class ProductCart implements Parcelable {
     public void setCount(int count) {
         this.count = count;
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(foodId);
-        dest.writeInt(count);
-    }
-
-    public static final Parcelable.Creator<ProductCart> CREATOR
-            = new Parcelable.Creator<ProductCart>() {
-        public ProductCart createFromParcel(Parcel in) {
-            return new ProductCart(in);
-        }
-
-        public ProductCart[] newArray(int size) {
-            return new ProductCart[size];
-        }
-    };
-
-    private ProductCart(Parcel in) {
-        foodId = in.readInt();
-        count = in.readInt();
-    }
-
 }
+
