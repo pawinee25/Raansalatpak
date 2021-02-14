@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/iv_imagefood"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
         android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
@@ -47,15 +47,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_decrement"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="20dp"
-            android:layout_weight="1"
             android:background="@drawable/shape_edit"
             android:backgroundTint="#BEF1B8"
             android:text="-" />
@@ -71,8 +70,8 @@
 
         <Button
             android:id="@+id/btn_increment"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:background="@drawable/shape_edit"
@@ -82,8 +81,8 @@
 
         <ImageView
             android:id="@+id/iv_imagedelete"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_baseline_delete_24" />
 
