@@ -29,13 +29,14 @@ public class CartActivity extends AppCompatActivity {
 
     private ArrayList<ProductCart> items;
     private RecyclerView mRecyclerView;
-    private ArrayList<Cart> carts = new ArrayList<>();
+    private ArrayList<Cart> carts = new ArrayList<>(); //  main list
     private TextView tv_food_price_total;
     private TextView tvprice;
     private int Count = 1;
     private int Food_Price;
     private TextView tv_number_counter;
     private String mTotal_Price;
+    private TextView mCartCountSum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class CartActivity extends AppCompatActivity {
         tv_food_price_total = (TextView) findViewById(R.id.tv_food_price_total);
         tvprice = (TextView) findViewById(R.id.tv_price);
         tv_number_counter = (TextView) findViewById(R.id.tv_number_counter);
+        mCartCountSum = (TextView)findViewById(R.id.cartCountSum);
 
       //  tv_food_price_total = String.format("%d", Food_Price * Count);
         mTotal_Price = String.format("%d", Food_Price * Count);
@@ -56,6 +58,16 @@ public class CartActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
         fetchProduct();
+
+        cartSum();
+    }
+
+    private void cartSum() {
+        int count = 0;
+        for (Cart cart : carts){
+            count += cart.getCount();
+        }
+        mCartCountSum.setText(String.valueOf(count));
     }
 
     private void fetchProduct() {
@@ -136,6 +148,7 @@ public class CartActivity extends AppCompatActivity {
                     );
                     carts.set(position, cart);
                     fetchProduct();
+                    cartSum();
                 }
             });
 
@@ -148,6 +161,7 @@ public class CartActivity extends AppCompatActivity {
                     );
                     carts.set(position, cart);
                     fetchProduct();
+                    cartSum();
                 }
             });
 
