@@ -45,9 +45,9 @@ public class CartActivity extends AppCompatActivity {
         tv_food_price_total = (TextView) findViewById(R.id.tv_food_price_total);
         tvprice = (TextView) findViewById(R.id.tv_price);
         tv_number_counter = (TextView) findViewById(R.id.tv_number_counter);
-        mCartCountSum = (TextView)findViewById(R.id.cartCountSum);
+        mCartCountSum = (TextView) findViewById(R.id.cartCountSum);
 
-      //  tv_food_price_total = String.format("%d", Food_Price * Count);
+        //  tv_food_price_total = String.format("%d", Food_Price * Count);
         mTotal_Price = String.format("%d", Food_Price * Count);
         tv_food_price_total.setText(mTotal_Price);
         // key productCarts
@@ -64,10 +64,18 @@ public class CartActivity extends AppCompatActivity {
 
     private void cartSum() {
         int count = 0;
-        for (Cart cart : carts){
+        int price = 0;
+        for (Cart cart : carts) {
             count += cart.getCount();
+
+            for (ProductCart productCart : items) {
+                if (cart.getFoodId() == productCart.getFood_id()) {
+                    price += cart.getCount() * productCart.getPrice();
+                }
+            }
         }
         mCartCountSum.setText(String.valueOf(count));
+        tv_food_price_total.setText(String.valueOf(price));
     }
 
     private void fetchProduct() {
@@ -137,14 +145,14 @@ public class CartActivity extends AppCompatActivity {
             holder.tvnamefoodth.setText(product.getFood_name());
             holder.tv_number_counter.setText(String.valueOf(product.getCount()));
             holder.tvprice.setText(product.getPrice() + "");
-            Dru.loadImageCircle(holder.iv_imagefood,  product.getImagefood());
+            Dru.loadImageCircle(holder.iv_imagefood, product.getImagefood());
 
             holder.btn_decrement.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Cart cart = new Cart(
                             carts.get(position).getFoodId(),
-                            carts.get(position).getCount() -1
+                            carts.get(position).getCount() - 1
                     );
                     carts.set(position, cart);
                     fetchProduct();
@@ -197,8 +205,8 @@ public class CartActivity extends AppCompatActivity {
             btn_decrement = (Button) itemView.findViewById(R.id.btn_decrement);
             btn_increment = (Button) itemView.findViewById(R.id.btn_increment);
             iv_imagedelete = (ImageView) itemView.findViewById(R.id.iv_imagedelete);
-            tvprice = (TextView)itemView.findViewById(R.id.tv_price);
-            tvfoodcount = (TextView)itemView.findViewById(R.id.tv_food_count);
+            tvprice = (TextView) itemView.findViewById(R.id.tv_price);
+            tvfoodcount = (TextView) itemView.findViewById(R.id.tv_food_count);
             iv_imagefood = (ImageView) itemView.findViewById(R.id.iv_imagefood);
 
         }
