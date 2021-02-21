@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.adedom.library.Dru;
 import com.adedom.library.ExecuteQuery;
+import com.adedom.library.ExecuteUpdate;
 import com.example.raansalatpak.Model.Cart;
 import com.example.raansalatpak.Model.ProductCart;
 
@@ -37,6 +39,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView tv_number_counter;
     private String mTotal_Price;
     private TextView mCartCountSum;
+    private Button mBtn_Submit_Cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +55,39 @@ public class CartActivity extends AppCompatActivity {
         tv_food_price_total.setText(mTotal_Price);
         // key productCarts
         carts = getIntent().getParcelableArrayListExtra("carts");
+        mBtn_Submit_Cart = (Button) findViewById(R.id.btn_Submit_Cart);
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewCart);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        mBtn_Submit_Cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InsertOrder();
+            }
+        });
 
         fetchProduct();
 
         cartSum();
+    }
+
+    private void InsertOrder() {
+        String query = "INSERT INTO `order` (";
+        for (Cart item : carts) {
+            query += "" + item.getFoodId() + ",";
+        }
+        query = query.substring(0, query.length() - 1);
+        query += ")";
+                Dru.connection(ConnectDB.getConnection())
+                        .execute(query)
+                        .commit(new ExecuteUpdate() {
+                            @Override
+                            public void onComplete() {
+                                Toast.makeText(CartActivity.this, "Insert order success", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
     }
 
     private void cartSum() {
