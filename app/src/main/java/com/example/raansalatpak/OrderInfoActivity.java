@@ -59,6 +59,7 @@ public class OrderInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), ReceiptActivity.class);
+                intent.putExtra("orderId", orderId);
                 startActivity(intent);
             }
         });
