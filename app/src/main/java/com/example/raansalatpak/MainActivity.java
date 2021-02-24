@@ -223,10 +223,10 @@ public class MainActivity extends AppCompatActivity {
         mIvCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!carts.isEmpty()){
+                if (!carts.isEmpty()) {
                     Intent intent = new Intent(getBaseContext(), CartActivity.class);
                     intent.putParcelableArrayListExtra("carts", carts);
-                    startActivityForResult(intent,REQUEST_CODE_CART);
+                    startActivityForResult(intent, REQUEST_CODE_CART);
                 }
             }
         });
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), ShopInformationActivity.class));
                 break;
             case R.id.nav_orders:
-                Toast.makeText(getBaseContext(), "nav_orders", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(), OrderActivity.class));
                 break;
             case R.id.nav_history:
                 Toast.makeText(getBaseContext(), "nav_history", Toast.LENGTH_SHORT).show();
@@ -266,6 +266,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_CART && resultCode == Activity.RESULT_OK) {
             carts.clear();
             mTvOrder.setText(String.valueOf(carts.size()));
+            startActivity(new Intent(getBaseContext(), OrderActivity.class));
         }
     }
 }
