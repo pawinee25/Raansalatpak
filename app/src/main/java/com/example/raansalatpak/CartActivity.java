@@ -29,9 +29,8 @@ public class CartActivity extends AppCompatActivity {
 
     private static final String TAG = "CartActivity";
 
-    private ArrayList<ProductCart> items;
     private RecyclerView mRecyclerView;
-    private ArrayList<Cart> carts = new ArrayList<>(); //  main list
+    private ArrayList<Cart> carts = new ArrayList<>();
     private TextView tv_food_price_total;
     private TextView tvprice;
     private int Count = 1;
@@ -40,6 +39,8 @@ public class CartActivity extends AppCompatActivity {
     private String mTotal_Price;
     private TextView mCartCountSum;
     private Button mBtn_Submit_Cart;
+    private ArrayList<ProductCart> productCarts = new ArrayList<>();
+    private CartAdapter mAdapter = new CartAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,16 +61,15 @@ public class CartActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewCart);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        mRecyclerView.setAdapter(mAdapter);
+
         mBtn_Submit_Cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InsertOrder();
             }
         });
 
         fetchProduct();
-
-        cartSum();
     }
 
     private void InsertOrder() {
@@ -93,14 +93,9 @@ public class CartActivity extends AppCompatActivity {
     private void cartSum() {
         int count = 0;
         int price = 0;
-        for (Cart cart : carts) {
-            count += cart.getCount();
-
-            for (ProductCart productCart : items) {
-                if (cart.getFoodId() == productCart.getFood_id()) {
-                    price += cart.getCount() * productCart.getPrice();
-                }
-            }
+        for (ProductCart productCart : productCarts) {
+            count += productCart.getCount();
+            price += productCart.getCount() * productCart.getPrice();
         }
         mCartCountSum.setText(String.valueOf(count));
         tv_food_price_total.setText(String.valueOf(price));
@@ -116,23 +111,19 @@ public class CartActivity extends AppCompatActivity {
         query = query.substring(0, query.length() - 1);
         query += ")";
 
-        Log.d(TAG, "fetchProduct: " + query);
-
         Dru.connection(ConnectDB.getConnection())
                 .execute(query)
                 .commit(new ExecuteQuery() {
                     @Override
                     public void onComplete(ResultSet resultSet) {
                         try {
-                            items = new ArrayList<>();
-
-                            int index = -1;
-
+                            int count = 0;
                             while (resultSet.next()) {
-                                index++;
-
-
-                                int count = carts.get(index).getCount();
+                                for (Cart cart : carts) {
+                                    if (cart.getFoodId() == resultSet.getInt(1)) {
+                                        count = cart.getCount();
+                                    }
+                                }
 
                                 ProductCart productCart = new ProductCart(
                                         resultSet.getInt(1),
@@ -144,12 +135,11 @@ public class CartActivity extends AppCompatActivity {
                                         resultSet.getInt(7),
                                         count
                                 );
-                                items.add(productCart);
-
-                                Log.d(TAG, "onComplete: " + resultSet.getString(2));
+                                productCarts.add(productCart);
                             }
 
-                            mRecyclerView.setAdapter(new CartAdapter());
+                            mAdapter.setList(productCarts);
+                            cartSum();
 
                         } catch (SQLException throwables) {
                             throwables.printStackTrace();
@@ -160,6 +150,9 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
+
+        private ArrayList<ProductCart> items = new ArrayList<>();
+
         @NonNull
         @Override
         public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -178,12 +171,20 @@ public class CartActivity extends AppCompatActivity {
             holder.btn_decrement.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Cart cart = new Cart(
-                            carts.get(position).getFoodId(),
-                            carts.get(position).getCount() - 1
+                    int index = productCarts.indexOf(product);
+                    ProductCart element = new ProductCart(
+                            product.getFood_id(),
+                            product.getFood_name(),
+                            product.getFood_nameus(),
+                            product.getImagefood(),
+                            product.getPrice(),
+                            product.getFood_detail_id(),
+                            product.getFood_type_id(),
+                            product.getCount() + 1
                     );
-                    carts.set(position, cart);
-                    fetchProduct();
+                    productCarts.set(index, element);
+
+                    setList(productCarts);
                     cartSum();
                 }
             });
@@ -191,12 +192,23 @@ public class CartActivity extends AppCompatActivity {
             holder.btn_increment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Cart cart = new Cart(
-                            carts.get(position).getFoodId(),
-                            carts.get(position).getCount() + 1
+                    int index = productCarts.indexOf(product);
+                    ProductCart element = new ProductCart(
+                            product.getFood_id(),
+                            product.getFood_name(),
+                            product.getFood_nameus(),
+                            product.getImagefood(),
+                            product.getPrice(),
+                            product.getFood_detail_id(),
+                            product.getFood_type_id(),
+                            product.getCount() - 1
                     );
-                    carts.set(position, cart);
-                    fetchProduct();
+                    if (element.getCount() <= 0) {
+                        return;
+                    }
+                    productCarts.set(index, element);
+
+                    setList(productCarts);
                     cartSum();
                 }
             });
@@ -204,8 +216,9 @@ public class CartActivity extends AppCompatActivity {
             holder.iv_imagedelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    carts.remove(position);
-                    fetchProduct();
+                    productCarts.remove(position);
+                    setList(productCarts);
+                    cartSum();
                 }
             });
         }
@@ -214,6 +227,12 @@ public class CartActivity extends AppCompatActivity {
         public int getItemCount() {
             return items.size();
         }
+
+        void setList(ArrayList<ProductCart> items) {
+            this.items = items;
+            notifyDataSetChanged();
+        }
+
     }
 
     private class CartViewHolder extends RecyclerView.ViewHolder {

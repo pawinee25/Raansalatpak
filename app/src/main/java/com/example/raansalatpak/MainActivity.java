@@ -220,10 +220,11 @@ public class MainActivity extends AppCompatActivity {
         mIvCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), CartActivity.class);
-                intent.putParcelableArrayListExtra("carts", carts);
-                startActivity(intent);
-
+                if (!carts.isEmpty()){
+                    Intent intent = new Intent(getBaseContext(), CartActivity.class);
+                    intent.putParcelableArrayListExtra("carts", carts);
+                    startActivity(intent);
+                }
             }
         });
 

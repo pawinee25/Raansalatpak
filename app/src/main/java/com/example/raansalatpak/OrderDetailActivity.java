@@ -24,7 +24,7 @@ public class OrderDetailActivity extends AppCompatActivity {
 
     private TextView mTvNumberCounter;
     private static final String TAG = "OrderDetailActivity";
-    private int Count = 0;
+    private int Count = 1;
     private ImageView mImg_Imgae;
     private ImageView iv_imagefood;
     private TextView mTv_NameFoodTh;
