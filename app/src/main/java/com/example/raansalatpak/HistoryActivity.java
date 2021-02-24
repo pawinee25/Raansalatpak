@@ -1,5 +1,11 @@
 package com.example.raansalatpak;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,12 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.adedom.library.Dru;
 import com.adedom.library.ExecuteQuery;
 import com.example.raansalatpak.Model.Order;
@@ -21,16 +21,16 @@ import com.example.raansalatpak.Model.Order;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class OrderActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
 
     private ArrayList<Order> items;
     private RecyclerView recyclerView;
-    private OrderAdapter mAdapter = new OrderAdapter();
+    private HistoryAdapter mAdapter = new HistoryAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order);
+        setContentView(R.layout.activity_history);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -41,7 +41,7 @@ public class OrderActivity extends AppCompatActivity {
 
     private void fetchOrder() {
         String customerId = getSharedPreferences("file", MODE_PRIVATE).getString("customerId", "");
-        String sql = "SELECT * FROM `order` WHERE Customer_ID = " + customerId + " AND Status IN (0, 1) ORDER BY Created DESC";
+        String sql = "SELECT * FROM `order` WHERE Customer_ID = " + customerId + " AND Status IN (2) ORDER BY Created DESC";
         Dru.connection(ConnectDB.getConnection())
                 .execute(sql)
                 .commit(new ExecuteQuery() {
@@ -66,7 +66,7 @@ public class OrderActivity extends AppCompatActivity {
                 });
     }
 
-    private class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
+    private class HistoryAdapter extends RecyclerView.Adapter<OrderViewHolder> {
         private ArrayList<Order> list = new ArrayList<>();
 
         @NonNull

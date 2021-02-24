@@ -250,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), OrderActivity.class));
                 break;
             case R.id.nav_history:
-                Toast.makeText(getBaseContext(), "nav_history", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(), HistoryActivity.class));
                 break;
             case R.id.nav_profile:
                 startActivity(new Intent(getBaseContext(), UserInfoActivity.class));
