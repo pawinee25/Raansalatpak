@@ -99,6 +99,7 @@ public class HistoryActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(getBaseContext(), OrderInfoActivity.class);
                     intent.putExtra("orderId", order.getOrderId());
+                    intent.putExtra("status", 1);
                     startActivity(intent);
                 }
             });

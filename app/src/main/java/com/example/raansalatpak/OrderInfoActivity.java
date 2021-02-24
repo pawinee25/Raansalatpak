@@ -1,5 +1,6 @@
 package com.example.raansalatpak;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.adedom.library.Dru;
 import com.adedom.library.ExecuteQuery;
 import com.example.raansalatpak.Model.OrderDetail;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -27,6 +29,8 @@ public class OrderInfoActivity extends AppCompatActivity {
     private OrderInfoAdapter mAdapter = new OrderInfoAdapter();
     private TextView tvFoodPriceTotal;
     private TextView tvCartCountSum;
+    private FloatingActionButton fab;
+    private int status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class OrderInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_info);
 
         orderId = getIntent().getStringExtra("orderId");
+        status = getIntent().getIntExtra("status", 0);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -43,6 +48,20 @@ public class OrderInfoActivity extends AppCompatActivity {
         tvCartCountSum = (TextView) findViewById(R.id.tvCartCountSum);
 
         fetchOrderInfo();
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        if (status == 0) {
+            fab.setVisibility(View.INVISIBLE);
+        } else {
+            fab.setVisibility(View.VISIBLE);
+        }
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), ReceiptActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void fetchOrderInfo() {

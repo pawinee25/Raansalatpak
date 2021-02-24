@@ -99,6 +99,7 @@ public class OrderActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(getBaseContext(), OrderInfoActivity.class);
                     intent.putExtra("orderId", order.getOrderId());
+                    intent.putExtra("status", 0);
                     startActivity(intent);
                 }
             });
