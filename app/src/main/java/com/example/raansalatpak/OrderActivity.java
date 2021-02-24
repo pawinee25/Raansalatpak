@@ -1,5 +1,6 @@
 package com.example.raansalatpak;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -90,6 +91,15 @@ public class OrderActivity extends AppCompatActivity {
                 case "2":
                     break;
             }
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getBaseContext(), OrderInfoActivity.class);
+                    intent.putExtra("orderId", order.getOrderId());
+                    startActivity(intent);
+                }
+            });
         }
 
         @Override

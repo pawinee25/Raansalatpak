@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Raansalatpak">
+        <activity android:name=".OrderInfoActivity" />
         <activity android:name=".OrderActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".YunActivity" />
