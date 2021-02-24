@@ -87,8 +87,10 @@ public class OrderActivity extends AppCompatActivity {
                     holder.rootLayout.setBackgroundColor(Color.rgb(255, 204, 204));
                     break;
                 case "1":
+                    holder.rootLayout.setBackgroundColor(Color.rgb(255, 255, 204));
                     break;
                 case "2":
+                    holder.rootLayout.setBackgroundColor(Color.rgb(204, 255, 204));
                     break;
             }
 
