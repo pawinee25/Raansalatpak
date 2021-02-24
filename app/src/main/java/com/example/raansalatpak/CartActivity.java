@@ -1,5 +1,6 @@
 package com.example.raansalatpak;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -113,6 +114,8 @@ public class CartActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete() {
                                             Toast.makeText(CartActivity.this, "Insert order success", Toast.LENGTH_SHORT).show();
+                                            setResult(Activity.RESULT_OK);
+                                            finish();
                                         }
                                     });
                         }

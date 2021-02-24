@@ -1,5 +1,6 @@
 package com.example.raansalatpak;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static int REQUEST_CODE_CART = 101;
     private TextView mTvrecommend;
     private TextView mTvsalat;
     private TextView mTvspaghetti;
@@ -223,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!carts.isEmpty()){
                     Intent intent = new Intent(getBaseContext(), CartActivity.class);
                     intent.putParcelableArrayListExtra("carts", carts);
-                    startActivity(intent);
+                    startActivityForResult(intent,REQUEST_CODE_CART);
                 }
             }
         });
@@ -256,7 +259,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == REQUEST_CODE_CART && resultCode == Activity.RESULT_OK) {
+            carts.clear();
+            mTvOrder.setText(String.valueOf(carts.size()));
+        }
+    }
 }
 
 
