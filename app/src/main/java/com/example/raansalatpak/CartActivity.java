@@ -1,7 +1,7 @@
 package com.example.raansalatpak;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +25,7 @@ import com.example.raansalatpak.Model.ProductCart;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -66,28 +68,56 @@ public class CartActivity extends AppCompatActivity {
         mBtn_Submit_Cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialogOrderConfirm();
             }
         });
 
         fetchProduct();
     }
 
-    private void InsertOrder() {
-        String query = "INSERT INTO `order` (";
-        for (Cart item : carts) {
-            query += "" + item.getFoodId() + ",";
-        }
-        query = query.substring(0, query.length() - 1);
-        query += ")";
-                Dru.connection(ConnectDB.getConnection())
-                        .execute(query)
-                        .commit(new ExecuteUpdate() {
-                            @Override
-                            public void onComplete() {
-                                Toast.makeText(CartActivity.this, "Insert order success", Toast.LENGTH_SHORT).show();
+    private void dialogOrderConfirm() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Order");
+        dialog.setMessage("Would you like to place an order?");
+        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                insertOrder();
+            }
+        });
+        dialog.show();
+    }
 
-                            }
-                        });
+    private void insertOrder() {
+        String uuid = UUID.randomUUID().toString().replace("-","");
+        String customerId = getSharedPreferences("file",MODE_PRIVATE).getString("customerId","");
+        String sqlOrder = "INSERT INTO `order`(`Order_ID`, `Customer_ID`, `Status`, `Created`) " +
+                "VALUES ('"+uuid+"' ,"+customerId+" ,'0' ,CURRENT_TIMESTAMP)";
+        Dru.connection(ConnectDB.getConnection())
+                .execute(sqlOrder)
+                .commit(new ExecuteUpdate() {
+                    @Override
+                    public void onComplete() {
+                        for (ProductCart productCart : productCarts) {
+                            String sqlOrderDetail = "INSERT INTO `orderdetail`( `Order_ID`, `Food_ID`, `Qty`) " +
+                                    "VALUES ('"+uuid+"',"+productCart.getFood_id()+" ,"+productCart.getCount()+")";
+                            Dru.connection(ConnectDB.getConnection())
+                                    .execute(sqlOrderDetail)
+                                    .commit(new ExecuteUpdate() {
+                                        @Override
+                                        public void onComplete() {
+                                            Toast.makeText(CartActivity.this, "Insert order success", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+                    }
+                });
     }
 
     private void cartSum() {
