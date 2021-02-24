@@ -25,6 +25,8 @@ public class OrderInfoActivity extends AppCompatActivity {
     private ArrayList<OrderDetail> orderDetails = new ArrayList<>();
     private RecyclerView recyclerView;
     private OrderInfoAdapter mAdapter = new OrderInfoAdapter();
+    private TextView tvFoodPriceTotal;
+    private TextView tvCartCountSum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,9 @@ public class OrderInfoActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         recyclerView.setAdapter(mAdapter);
+
+        tvFoodPriceTotal = (TextView) findViewById(R.id.tvFoodPriceTotal);
+        tvCartCountSum = (TextView) findViewById(R.id.tvCartCountSum);
 
         fetchOrderInfo();
     }
@@ -65,10 +70,22 @@ public class OrderInfoActivity extends AppCompatActivity {
                             }
 
                             mAdapter.setList(orderDetails);
+                            calSumOrder();
                         } catch (Exception e) {
                         }
                     }
                 });
+    }
+
+    private void calSumOrder() {
+        int count = 0;
+        int price = 0;
+        for (OrderDetail orderDetail : orderDetails) {
+            count += orderDetail.getQty();
+            price += orderDetail.getQty() * orderDetail.getFoodPrice();
+        }
+        tvCartCountSum.setText(String.valueOf(count));
+        tvFoodPriceTotal.setText(String.valueOf(price));
     }
 
     private class OrderInfoAdapter extends RecyclerView.Adapter<OrderInfoViewHolder> {
@@ -87,6 +104,7 @@ public class OrderInfoActivity extends AppCompatActivity {
 
             holder.tvFoodName.setText(item.getFoodName());
             holder.tvFoodQty.setText(String.valueOf(item.getQty()));
+            holder.tvFoodPrice.setText(String.valueOf(item.getFoodPrice()));
 
             Dru.loadImage(holder.ivFoodImage, item.getFoodImage());
         }
@@ -106,12 +124,14 @@ public class OrderInfoActivity extends AppCompatActivity {
     private class OrderInfoViewHolder extends RecyclerView.ViewHolder {
         private final ImageView ivFoodImage;
         private final TextView tvFoodName;
+        private final TextView tvFoodPrice;
         private final TextView tvFoodQty;
 
         public OrderInfoViewHolder(@NonNull View itemView) {
             super(itemView);
             ivFoodImage = (ImageView) itemView.findViewById(R.id.ivFoodImage);
             tvFoodName = (TextView) itemView.findViewById(R.id.tvFoodName);
+            tvFoodPrice = (TextView) itemView.findViewById(R.id.tvFoodPrice);
             tvFoodQty = (TextView) itemView.findViewById(R.id.tvFoodQty);
         }
     }

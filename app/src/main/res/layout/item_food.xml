@@ -21,10 +21,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Food name"
-        app:layout_constraintBottom_toTopOf="@+id/tvFoodQty"
+        app:layout_constraintBottom_toTopOf="@+id/tvFoodPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivFoodImage"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFoodPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Food price"
+        app:layout_constraintBottom_toTopOf="@+id/tvFoodQty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivFoodImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvFoodName" />
 
     <TextView
         android:id="@+id/tvFoodQty"
@@ -35,6 +46,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivFoodImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvFoodName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFoodPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
