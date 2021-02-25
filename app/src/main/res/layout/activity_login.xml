@@ -40,13 +40,6 @@
             android:hint="รหัสผ่าน"
             android:inputType="textPassword" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:hint="ลืมรหัสผ่าน"
-            android:textSize="12dp" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
