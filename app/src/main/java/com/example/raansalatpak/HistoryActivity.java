@@ -2,6 +2,7 @@ package com.example.raansalatpak;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.adedom.library.Dru;
@@ -31,6 +33,9 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("ประวัติคำสั่งซื้อที่สำเร็จ");
+        setSupportActionBar(toolbar);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -120,13 +125,13 @@ public class HistoryActivity extends AppCompatActivity {
     private class OrderViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvOrderId;
         private final TextView tvCreated;
-        private final ConstraintLayout rootLayout;
+        private final LinearLayout rootLayout;
 
         public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
             tvOrderId = (TextView) itemView.findViewById(R.id.tvOrderId);
             tvCreated = (TextView) itemView.findViewById(R.id.tvCreated);
-            rootLayout = (ConstraintLayout) itemView.findViewById(R.id.rootLayout);
+            rootLayout = (LinearLayout) itemView.findViewById(R.id.rootLayout);
         }
     }
 

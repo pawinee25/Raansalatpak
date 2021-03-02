@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("ráan sà-làt pàk");
+        toolbar.setTitle("Ráan Sà-Làt Pàk");
         setSupportActionBar(toolbar);
 
         mTvrecommend = (TextView) findViewById(R.id.tv_recommend);
