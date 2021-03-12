@@ -6,15 +6,17 @@ public class Order {
     private int customerId;
     private String status;
     private String created;
+    private String updated;
 
     public Order() {
     }
 
-    public Order(String orderId, int customerId, String status, String created) {
+    public Order(String orderId, int customerId, String status, String created, String updated) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.status = status;
         this.created = created;
+        this.updated = updated;
     }
 
     public String getOrderId() {
@@ -47,5 +49,13 @@ public class Order {
 
     public void setCreated(String created) {
         this.created = created;
+    }
+
+    public String getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(String updated) {
+        this.updated = updated;
     }
 }

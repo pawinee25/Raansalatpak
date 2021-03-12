@@ -27,6 +27,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
     private TextView tvOrderId;
     private TextView tvOrderDateTime;
+    private TextView tvOrderUpdated;
     private TextView tvOrderQty;
     private TextView tvOrderTotalPrice;
     private RecyclerView recyclerView;
@@ -39,6 +40,7 @@ public class ReceiptActivity extends AppCompatActivity {
 
         tvOrderId = (TextView) findViewById(R.id.tvOrderId);
         tvOrderDateTime = (TextView) findViewById(R.id.tvOrderDateTime);
+        tvOrderUpdated = (TextView) findViewById(R.id.tvOrderUpdated);
         tvOrderQty = (TextView) findViewById(R.id.tvOrderQty);
         tvOrderTotalPrice = (TextView) findViewById(R.id.tvOrderTotalPrice);
 
@@ -63,10 +65,12 @@ public class ReceiptActivity extends AppCompatActivity {
                                         resultSet.getString(1),
                                         resultSet.getInt(2),
                                         resultSet.getString(3),
-                                        resultSet.getString(4)
+                                        resultSet.getString(4),
+                                        resultSet.getString(5)
                                 );
                                 tvOrderId.setText(order.getOrderId());
                                 tvOrderDateTime.setText(order.getCreated());
+                                tvOrderUpdated.setText(order.getUpdated());
                             }
                         } catch (Exception e) {
                         }
