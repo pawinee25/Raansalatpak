@@ -44,10 +44,10 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/iv_imageadd"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_baseline_add_circle_outline_24" />
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_imageadd"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:src="@drawable/ic_baseline_add_circle_outline_24" />-->
 </LinearLayout>

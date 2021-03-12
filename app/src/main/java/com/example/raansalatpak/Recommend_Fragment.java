@@ -31,7 +31,6 @@ public class Recommend_Fragment extends Fragment {
     private static final String TAG = "TestPutExtra";
     private RecyclerView mRecyclerView;
     private ArrayList<Product> items;
-    private ImageView miv_imageadd;
 
     private SetOnOrderListener listener;
 
@@ -51,8 +50,6 @@ public class Recommend_Fragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewrecomment);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(new RecommentAdapter());
-        miv_imageadd = (ImageView) view.findViewById(R.id.iv_imageadd);
-
     }
 
 
@@ -119,7 +116,6 @@ public class Recommend_Fragment extends Fragment {
 
     public class ProducrtHolder extends RecyclerView.ViewHolder {
         private final ImageView ivimagefood;
-        private final ImageView iv_imagefood;
         private final TextView tvnamefoodth;
         private final TextView tvnamefoodus;
         private final TextView tvprice;
@@ -130,9 +126,8 @@ public class Recommend_Fragment extends Fragment {
             tvnamefoodth = (TextView) itemView.findViewById(R.id.tv_namefoodth);
             tvnamefoodus = (TextView) itemView.findViewById(R.id.tv_namefoodus);
             tvprice = (TextView) itemView.findViewById(R.id.tv_price);
-            iv_imagefood = (ImageView) itemView.findViewById(R.id.iv_imageadd);
 
-            iv_imagefood.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Product product = items.get(getAdapterPosition());
