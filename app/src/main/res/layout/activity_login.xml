@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_marginTop="40dp"
+    android:background="#A5E8F1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
     <ImageView
         android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_height="240dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="90dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo2" />
     <LinearLayout
         style="@style/LinearLayoutMain"
         android:layout_centerInParent="true">
@@ -21,38 +21,43 @@
         <EditText
             android:id="@+id/edt_username"
             style="@style/EditText"
-            android:layout_marginTop="130dp"
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:layout_marginTop="200dp"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:hint="ชื่อผู้ใช้งาน" />
+            android:hint="กรอกชื่อผู้ใช้งาน" />
 
         <EditText
             android:id="@+id/edt_password"
             style="@style/EditText"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:hint="รหัสผ่าน"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/ic_baseline_lock_open_24"
+            android:hint="กรอกรหัสผ่าน"
             android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="30dp">
 
             <Button
+
                 android:id="@+id/btn_login"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
+                android:background="#FF5722"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:text="เข้าสู่ระบบ" />
 
             <Button
                 android:id="@+id/btn_register"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:background="#FF5722"
                 android:layout_marginRight="10dp"
                 android:textSize="20dp"
                 android:textColor="@color/black"

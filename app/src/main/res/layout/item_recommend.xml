@@ -24,6 +24,7 @@
             android:id="@+id/tv_namefoodth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_marginLeft="20dp"
             android:text="ชื่อไทย" />
 
@@ -31,12 +32,14 @@
             android:id="@+id/tv_namefoodus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_gravity=""
             android:layout_marginLeft="20dp"
             android:text="ชื่ออังกฤษ" />
 
         <TextView
             android:id="@+id/tv_price"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

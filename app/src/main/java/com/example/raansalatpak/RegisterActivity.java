@@ -1,6 +1,7 @@
 package com.example.raansalatpak;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,6 +31,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("กรอกรายละเอียดเพื่อสมัครสมาชิก");
+        setSupportActionBar(toolbar);
 
         mEdtname = (EditText) findViewById(R.id.edt_name);
         mEdtsurname = (EditText) findViewById(R.id.edt_surname);
@@ -42,6 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
         mEdtemail = (EditText) findViewById(R.id.edt_email);
         mBtconfirm = (Button) findViewById(R.id.bt_confirm);
         mBtcancel = (Button) findViewById(R.id.bt_cancel);
+
+
 
         mBtconfirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(),LoginActivity.class));
             }
         });
+
     }
 }
 

@@ -20,6 +20,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:textColor="@color/black"
         android:text="Food name"
         app:layout_constraintBottom_toTopOf="@+id/tvFoodPrice"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +30,7 @@
     <TextView
         android:id="@+id/tvFoodPrice"
         android:layout_width="0dp"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Food price"
@@ -42,6 +44,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:textColor="@color/black"
         android:text="Food qty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

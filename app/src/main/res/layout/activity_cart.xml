@@ -39,7 +39,7 @@
             android:id="@+id/tv_food_price_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="130dp"
             android:text="2,000"
             android:textColor="@color/black"
             android:textSize="30dp" />
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="225dp"
+            android:layout_marginStart="215dp"
             android:text="฿"
             android:textColor="@color/black"
             android:textSize="30dp" />
@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="250dp"
+            android:layout_marginStart="240dp"
             android:text="จำนวนชิ้น"
             android:textColor="@color/black"
             android:textSize="30dp" />
@@ -75,8 +75,9 @@
             android:layout_height="80dp"
             android:layout_marginTop="45dp"
             android:backgroundTint="#4CAF50"
+            android:textColor="@color/black"
             android:text="สั่งซื้อเลย"
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
     </RelativeLayout>
 

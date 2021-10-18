@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:text="แนะนำ"
+            android:textColor="@color/black"
             android:textSize="16dp"
             app:layout_constraintEnd_toStartOf="@+id/tv_salat"
             app:layout_constraintStart_toEndOf="parent"
@@ -41,6 +42,7 @@
             android:id="@+id/tv_salat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_marginRight="20dp"
             android:text="สลัด"
             android:textSize="16dp" />
@@ -50,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:textColor="@color/black"
             android:text="สเต็ก"
             android:textSize="16dp" />
 
@@ -58,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:textColor="@color/black"
             android:text="สปาเก็ตตี้"
             android:textSize="16dp" />
 
@@ -66,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:textColor="@color/black"
             android:text="เครื่องดื่ม"
             android:textSize="16dp" />
 
@@ -89,6 +94,7 @@
         android:layout_margin="90dp"
         android:padding="16dp"
         android:text="0"
+        android:textColor="@color/black"
         android:background="#A5E8F1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

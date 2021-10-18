@@ -18,12 +18,14 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/black"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_namefoodth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_marginLeft="20dp"
             android:text="ชื่อไทย" />
 
@@ -31,6 +33,7 @@
             android:id="@+id/tv_food_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_gravity=""
             android:layout_marginLeft="20dp"
             android:text="ราคา" />
@@ -39,6 +42,7 @@
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_marginLeft="20dp"
             android:text="ราคา" />
 
@@ -55,9 +59,9 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/shape_edit"
-            android:backgroundTint="#BEF1B8"
-            android:text="-" />
+            android:layout_weight="1"
+            android:backgroundTint="#0B0B0B"
+            android:background="@drawable/decement" />
 
         <TextView
             android:id="@+id/tv_number_counter"
@@ -74,9 +78,8 @@
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_edit"
-            android:backgroundTint="#BEF1B8"
-            android:text="+" />
+            android:backgroundTint="#0B0B0B"
+            android:background="@drawable/plus" />
 
 
         <ImageView
