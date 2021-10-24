@@ -27,9 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mEdtusername = (EditText) findViewById(R.id.edt_username);
-        mEdtpassword = (EditText) findViewById(R.id.edt_password);
-
         mBtnregister = (Button) findViewById(R.id.btn_register);
         mBtnregister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,9 +35,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        mEdtusername = (EditText) findViewById(R.id.edt_username);
+        mEdtpassword = (EditText) findViewById(R.id.edt_password);
+
         mBtnlogin = (Button) findViewById(R.id.btn_login);
         mBtnlogin.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 String username = mEdtusername.getText().toString().trim();
@@ -48,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                 login(username, password);
             }
         });
-
     }
 
     private void login(String username, String password) {

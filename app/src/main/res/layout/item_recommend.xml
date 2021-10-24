@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:textSize="20dp"
             android:layout_marginLeft="20dp"
             android:text="ชื่อไทย" />
 
@@ -34,6 +35,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_gravity=""
+            android:textSize="20dp"
             android:layout_marginLeft="20dp"
             android:text="ชื่ออังกฤษ" />
 
@@ -42,6 +44,7 @@
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:layout_marginLeft="20dp"
             android:text="ราคา" />
 

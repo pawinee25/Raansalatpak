@@ -25,10 +25,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
+            android:textSize="20dp"
             android:text="ชื่อ" />
 
         <TextView
             android:id="@+id/tv_name"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -42,6 +44,7 @@
 
         <TextView
             android:textColor="@color/black"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -50,6 +53,7 @@
 
         <TextView
             android:id="@+id/tv_surname"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -63,6 +67,7 @@
 
         <TextView
             android:textColor="@color/black"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -71,6 +76,7 @@
 
         <TextView
             android:id="@+id/tv_username"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -83,6 +89,7 @@
 
         <TextView
             android:textColor="@color/black"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -91,6 +98,7 @@
 
         <TextView
             android:id="@+id/tv_dateofbirth"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -103,6 +111,7 @@
 
         <TextView
             android:textColor="@color/black"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -111,6 +120,7 @@
 
         <TextView
             android:id="@+id/tv_gender"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -126,6 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:layout_marginRight="30dp"
             android:text="เบอร์โทรศัพท์" />
 
@@ -134,6 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:text="เบอร์โทรศัพท์" />
 
     </LinearLayout>
@@ -147,6 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:layout_marginRight="30dp"
             android:text="อีเมล" />
 
@@ -155,6 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="20dp"
             android:text="อีเมล" />
 
     </LinearLayout>

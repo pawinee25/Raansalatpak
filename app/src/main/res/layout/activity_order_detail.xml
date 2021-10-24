@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
@@ -22,6 +23,7 @@
         android:id="@+id/tv_namefoodth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:textColor="@color/black"
         android:layout_marginTop="10dp"
         android:text="น้ำเสาวรส" />
@@ -31,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:textSize="20dp"
         android:layout_marginTop="15dp"
         android:text="Passion fruit juice" />
 
@@ -38,8 +41,8 @@
         android:id="@+id/tv_detail_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:textColor="@color/black"
         android:text="รายละเอียดอาหาร"
@@ -51,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginTop="30dp"
-        android:background="#8BC34A"
+        android:background="#A5E8F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_b" />
@@ -90,9 +93,8 @@
             android:layout_height="50dp"
             android:layout_marginEnd="50dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn"
-            android:backgroundTint="#A5E8F1"
-            android:text="-" />
+            android:background="@drawable/decement"
+            android:backgroundTint="#020202" />
 
         <TextView
             android:id="@+id/tv_number_counter"
@@ -101,7 +103,7 @@
             android:layout_gravity="center"
             android:background="@color/white"
             android:text="1"
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/btn_increment"
@@ -109,21 +111,20 @@
             android:layout_height="50dp"
             android:layout_marginStart="50dp"
             android:layout_weight="1"
-            android:background="@drawable/shape_btn"
-            android:backgroundTint="#A5E8F1"
-            android:text="+" />
+            android:background="@drawable/plus"
+            android:backgroundTint="#040303" />
 
     </LinearLayout>
 
     <RelativeLayout
 
         android:id="@+id/submit"
-        android:layout_width="400dp"
+        android:layout_width="420dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/ic_launcher_background"
-        android:backgroundTint="#BEF1B8"
+        android:backgroundTint="#4CAF50"
         android:padding="8dp">
 
         <TextView
@@ -132,7 +133,7 @@
             android:layout_marginStart="60dp"
             android:text="ใส่ในตระกร้า"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/tv_food_price"
@@ -141,15 +142,15 @@
             android:layout_marginStart="230dp"
             android:text="ราคา"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="280dp"
+            android:layout_marginStart="300dp"
             android:text="฿"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="25dp" />
 
     </RelativeLayout>
 

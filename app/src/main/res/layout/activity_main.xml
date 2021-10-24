@@ -30,10 +30,10 @@
             android:id="@+id/tv_recommend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:text="แนะนำ"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toStartOf="@+id/tv_salat"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,36 +43,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:text="สลัด"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_steak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:textColor="@color/black"
             android:text="สเต็ก"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_spaghetti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:textColor="@color/black"
             android:text="สปาเก็ตตี้"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_drinks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:textColor="@color/black"
             android:text="เครื่องดื่ม"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
 
     </LinearLayout>
