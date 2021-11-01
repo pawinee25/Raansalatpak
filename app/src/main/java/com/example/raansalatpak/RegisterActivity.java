@@ -31,9 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("กรอกรายละเอียดเพื่อสมัครสมาชิก");
-        setSupportActionBar(toolbar);
+
 
         mEdtname = (EditText) findViewById(R.id.edt_name);
         mEdtsurname = (EditText) findViewById(R.id.edt_surname);

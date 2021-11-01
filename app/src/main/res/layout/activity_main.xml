@@ -16,6 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fillViewport="true"-->
+<!--        android:scrollbars = "horizontal"-->
+<!--        android:scrollbarStyle="insideInset"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/toolbar">-->
     <LinearLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"
@@ -26,58 +36,66 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <TextView
+
+        <Button
             android:id="@+id/tv_recommend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_width="70dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_height="40dp"
+            android:background="#C9FD94"
+            android:layout_marginStart="10dp"
             android:text="แนะนำ"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="16dp"
             app:layout_constraintEnd_toStartOf="@+id/tv_salat"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_salat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#C9FD94"
+            android:layout_height="40dp"
             android:textColor="@color/black"
-            android:layout_marginRight="10dp"
             android:text="สลัด"
-            android:textSize="20dp" />
+            android:textSize="16dp" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_steak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_width="70dp"
+            android:layout_marginRight="5dp"
+            android:background="#C9FD94"
+            android:layout_height="40dp"
             android:textColor="@color/black"
             android:text="สเต็ก"
-            android:textSize="20dp" />
+            android:textSize="16dp" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_spaghetti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_width="80dp"
+            android:layout_marginRight="5dp"
+            android:background="#C9FD94"
+            android:layout_height="40dp"
             android:textColor="@color/black"
             android:text="สปาเก็ตตี้"
-            android:textSize="20dp" />
+            android:textSize="16dp" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_drinks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_width="80dp"
+            android:layout_marginRight="15dp"
+            android:background="#C9FD94"
+            android:layout_height="40dp"
             android:textColor="@color/black"
             android:text="เครื่องดื่ม"
-            android:textSize="20dp" />
+            android:textSize="16dp" />
 
 
     </LinearLayout>
-
-
+<!--</ScrollView>-->
     <FrameLayout
         android:id="@+id/framelayout"
         android:layout_width="match_parent"
@@ -85,7 +103,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab"></FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/tab">
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvOrder"

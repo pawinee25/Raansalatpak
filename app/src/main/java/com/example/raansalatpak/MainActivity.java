@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,11 +25,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static int REQUEST_CODE_CART = 101;
-    private TextView mTvrecommend;
-    private TextView mTvsalat;
-    private TextView mTvspaghetti;
-    private TextView mTvsteak;
-    private TextView mTvdrinks;
+    private Button mTvrecommend;
+    private Button mTvsalat;
+    private Button mTvspaghetti;
+    private Button mTvsteak;
+    private Button mTvdrinks;
     private static final String TAG = "MainActivity";
     private ArrayList<Product> items;
     private RecyclerView mRecyclerView;
@@ -137,11 +138,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("Halal Food Ordering");
         setSupportActionBar(toolbar);
 
-        mTvrecommend = (TextView) findViewById(R.id.tv_recommend);
-        mTvsalat = (TextView) findViewById(R.id.tv_salat);
-        mTvspaghetti = (TextView) findViewById(R.id.tv_spaghetti);
-        mTvsteak = (TextView) findViewById(R.id.tv_steak);
-        mTvdrinks = (TextView) findViewById(R.id.tv_drinks);
+        mTvrecommend = (Button) findViewById(R.id.tv_recommend);
+        mTvsalat = (Button) findViewById(R.id.tv_salat);
+        mTvspaghetti = (Button) findViewById(R.id.tv_spaghetti);
+        mTvsteak = (Button) findViewById(R.id.tv_steak);
+        mTvdrinks = (Button) findViewById(R.id.tv_drinks);
         mTvOrder = (TextView) findViewById(R.id.tvOrder);
         mIvCart = (ImageView) findViewById(R.id.iv_imageCart);
 

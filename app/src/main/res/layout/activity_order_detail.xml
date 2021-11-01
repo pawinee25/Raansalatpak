@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginTop="15dp"
         android:text="Passion fruit juice" />
 
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:gravity="center"
         android:textColor="@color/black"
         android:text="รายละเอียดอาหาร"
@@ -53,7 +53,7 @@
         android:id="@+id/v_roll"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="#A5E8F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,11 +117,10 @@
     </LinearLayout>
 
     <RelativeLayout
-
         android:id="@+id/submit"
         android:layout_width="420dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/ic_launcher_background"
         android:backgroundTint="#4CAF50"
