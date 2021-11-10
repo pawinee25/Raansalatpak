@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="0dp"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
+    android:background="#CAF1F6"
     android:orientation="vertical"
     tools:context=".OrderDetailActivity">
 
@@ -13,7 +14,7 @@
         android:id="@+id/img_imgae"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,8 @@
         android:id="@+id/tv_namefoodth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="35dp"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_marginTop="10dp"
         android:text="น้ำเสาวรส" />
@@ -33,18 +35,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="15dp"
-        android:layout_marginTop="15dp"
+        android:textSize="20dp"
         android:text="Passion fruit juice" />
 
     <TextView
         android:id="@+id/tv_detail_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:textSize="16dp"
         android:gravity="center"
-        android:textColor="@color/black"
         android:text="รายละเอียดอาหาร"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_a" />
@@ -52,9 +52,9 @@
     <View
         android:id="@+id/v_roll"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginTop="20dp"
-        android:background="#A5E8F1"
+        android:layout_height="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#F1FBFB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_b" />
@@ -84,24 +84,26 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_decrement"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:background="@drawable/decement"
+            android:background="@drawable/decrement4"
             android:backgroundTint="#020202" />
 
         <TextView
             android:id="@+id/tv_number_counter"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/white"
+            android:textColor="@color/black"
+            android:background="@color/colorNavigation"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
             android:text="1"
             android:textSize="25dp" />
 
@@ -109,46 +111,45 @@
             android:id="@+id/btn_increment"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:background="@drawable/plus"
+            android:background="@drawable/increment4"
             android:backgroundTint="#040303" />
 
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/submit"
-        android:layout_width="420dp"
+        android:layout_width="380dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:background="#4CAF50"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/ic_launcher_background"
-        android:backgroundTint="#4CAF50"
         android:padding="8dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:text="ใส่ในตระกร้า"
-            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:text="เพิ่มในตระกร้าสินค้า"
+            android:textColor="#EBFADC"
             android:textSize="25dp" />
 
         <TextView
             android:id="@+id/tv_food_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="230dp"
+            android:layout_marginStart="280dp"
             android:text="ราคา"
-            android:textColor="@color/black"
+            android:textColor="#EBFADC"
             android:textSize="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="300dp"
+            android:layout_marginStart="330dp"
             android:text="฿"
-            android:textColor="@color/black"
+            android:textColor="#EBFADC"
             android:textSize="25dp" />
 
     </RelativeLayout>

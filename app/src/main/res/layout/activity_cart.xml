@@ -33,41 +33,48 @@
             android:layout_marginStart="10dp"
             android:text="ราคารวม"
             android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_food_price_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
+            android:layout_marginStart="100dp"
             android:text="2,000"
             android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="215dp"
+            android:layout_marginStart="165dp"
             android:text="฿"
             android:textColor="@color/black"
-            android:textSize="30dp" />
-
+            android:textSize="20dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="240dp"
-            android:text="จำนวนชิ้น"
+            android:layout_marginStart="210dp"
+            android:text="จำนวน"
             android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/cartCountSum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="280dp"
             android:text="0"
-            android:textSize="30dp" />
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:text="รายการ"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btn_Submit_Cart"

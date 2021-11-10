@@ -11,7 +11,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00BCD4"
+        app:titleTextColor="#FFFFFF"
+        android:background="#44BDCD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -113,9 +115,7 @@
         android:layout_height="50dp"
         android:layout_margin="90dp"
         android:padding="16dp"
-        android:text="0"
         android:textColor="@color/black"
-        android:background="#A5E8F1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="13" />

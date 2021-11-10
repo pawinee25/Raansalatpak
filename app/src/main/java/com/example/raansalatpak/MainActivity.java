@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Halal Food Ordering");
+        toolbar.setTitle("Halal Food Delivery");
         setSupportActionBar(toolbar);
 
         mTvrecommend = (Button) findViewById(R.id.tv_recommend);

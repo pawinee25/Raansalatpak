@@ -11,7 +11,7 @@
         android:id="@+id/tvReceipt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Receipt"
+        android:text="ใบเสร็จรับเงิน"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/orderId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order id"
+        android:text="รหัสคำสั่งซื้อ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvReceipt" />
 
@@ -37,7 +37,7 @@
         android:id="@+id/orderDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order date time"
+        android:text="เวลาที่สั่งซื้อ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderId" />
 
@@ -53,7 +53,7 @@
         android:id="@+id/orderUpdated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check bill"
+        android:text="เวลาชำระเงิน"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderDateTime" />
 
@@ -69,7 +69,7 @@
         android:id="@+id/orderQty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order qty"
+        android:text="จำนวนรายการ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderUpdated" />
 
@@ -112,7 +112,7 @@
         android:id="@+id/orderTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Order total price"
+        android:text="ราคารวมทั้งหมด"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewTwo" />
@@ -123,7 +123,7 @@
         android:layout_height="wrap_content"
         android:text="208"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewTwo" />
+        app:layout_constraintEnd_toEndOf="@+id/viewTwo"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

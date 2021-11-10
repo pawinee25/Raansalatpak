@@ -13,7 +13,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="กรุณากรอกข้อมูลส่วนตัวของท่านลงในช่องว่างเพื่อสมัครสมาชิก"
-      android:textSize="25dp"
+      android:textSize="20dp"
       android:textColor="@color/black"/>
 
     <ScrollView
@@ -39,12 +39,14 @@
                 android:id="@+id/edt_name"
                 style="@style/EditText"
                 android:layout_width="350dp"
+                android:drawableStart="@drawable/ic_baseline_person_24"
                 android:layout_height="wrap_content"
                 android:hint="ชื่อ" />
 
             <EditText
                 android:id="@+id/edt_surname"
                 style="@style/EditText"
+                android:drawableStart="@drawable/ic_baseline_person_24"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -53,6 +55,7 @@
             <EditText
                 android:id="@+id/edt_username"
                 style="@style/EditText"
+                android:drawableStart="@drawable/ic_baseline_person_24"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -60,6 +63,7 @@
 
             <EditText
                 android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_baseline_lock_open_24"
                 android:id="@+id/edt_password"
                 style="@style/EditText"
                 android:layout_width="350dp"
@@ -69,6 +73,7 @@
 
             <EditText
                 android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_baseline_lock_open_24"
                 android:id="@+id/edt_repassword"
                 style="@style/EditText"
                 android:layout_width="350dp"
@@ -79,6 +84,7 @@
             <EditText
                 android:id="@+id/edt_dateofbirth"
                 style="@style/EditText"
+                android:drawableStart="@drawable/ic_baseline_calendar_today_24"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -88,6 +94,7 @@
             <EditText
                 android:id="@+id/edt_gender"
                 style="@style/EditText"
+                android:drawableStart="@drawable/genderr"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -96,6 +103,7 @@
             <EditText
                 android:id="@+id/edt_tel"
                 style="@style/EditText"
+                android:drawableStart="@drawable/ic_baseline_phone_24"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -105,6 +113,7 @@
                 android:id="@+id/edt_email"
                 style="@style/EditText"
                 android:layout_width="350dp"
+                android:drawableStart="@drawable/ic_baseline_email_24"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="อีเมล" />
@@ -118,21 +127,21 @@
                 <Button
                     android:id="@+id/bt_confirm"
                     android:text="ยืนยัน"
-                    android:layout_width="150dp"
-                    android:textSize="25dp"
-                    android:layout_height="60dp"
-                    android:background="#C9FD94"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="10dp" />
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:background="#4CAF50"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#EBFADC"
+                    android:textSize="20dp" />
 
                 <Button
                     android:id="@+id/bt_cancel"
                     android:text="ยกเลิก"
-                    android:background="@color/design_default_color_error"
-                    android:textColor="@color/black"
+                    android:background="#EBFADC"
+                    android:textColor="#4CAF50"
                     android:textSize="25dp"
-                    android:layout_width="150dp"
-                    android:layout_height="60dp" />
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
         </LinearLayout>
