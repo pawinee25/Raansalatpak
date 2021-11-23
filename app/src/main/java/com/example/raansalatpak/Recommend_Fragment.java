@@ -59,7 +59,7 @@ public class Recommend_Fragment extends Fragment {
     }
 
     private void fetchProduct() {
-        String sql = "SELECT * FROM `food`";
+        String sql = "SELECT f.Food_ID,f.Food_Name,f.Food_NameUS,f.Food_Image,f.Food_Price,f.Food_Detail_ID,f.Food_Type_ID, orderdetail.Food_ID,orderdetail.Qty  FROM food f INNER JOIN orderdetail  ON orderdetail.Food_ID = f.Food_ID AND orderdetail.Qty>3 GROUP BY f.Food_ID DESC LIMIT 10";
         Dru.connection(ConnectDB.getConnection())
                 .execute(sql)
                 .commit(new ExecuteQuery() {
@@ -93,7 +93,7 @@ public class Recommend_Fragment extends Fragment {
         @NonNull
         @Override
         public ProducrtHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recommend, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_reccommend2, parent, false);
             return new ProducrtHolder(view);
         }
 
